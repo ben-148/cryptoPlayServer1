@@ -35,7 +35,6 @@ router.get("/my-cards", authmw, async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     //! joi validation
-    // const id = req.params.id;
     await cardsValidationService.cardIdValidation(req.params.id);
 
     const cardFromDB = await cardsServiceModel.getCardById(req.params.id);
@@ -46,17 +45,22 @@ router.get("/:id", async (req, res) => {
 });
 
 // biz only
-router.post("/", authmw, async (req, res) => {
-  try {
-    await cardsValidationService.createCardValidation(req.body);
-    let normalCard = await normalizeCard(req.body, req.userData._id);
-    const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
-    console.log("dataFromMongoose", dataFromMongoose);
-    res.json({ msg: "ok" });
-  } catch (err) {
-    res.status(400).json(err);
+router.post(
+  "/",
+  authmw,
+  permissionsMiddleware(true, false, false),
+  async (req, res) => {
+    try {
+      await cardsValidationService.createCardValidation(req.body);
+      let normalCard = await normalizeCard(req.body, req.userData._id);
+      const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
+      console.log("dataFromMongoose", dataFromMongoose);
+      res.json(dataFromMongoose);
+    } catch (err) {
+      res.status(400).json(err);
+    }
   }
-});
+);
 
 // admin or biz owner
 router.put("/:id", async (req, res) => {
