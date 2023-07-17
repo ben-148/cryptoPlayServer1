@@ -63,7 +63,7 @@ router.post(
 );
 
 // admin or biz owner
-router.put("/:id", async (req, res) => {
+/* router.put("/:id", async (req, res) => {
   try {
     //! joi validation
     //! normalize
@@ -76,6 +76,26 @@ router.put("/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+ */
+router.put(
+  "/:id",
+  authmw,
+  permissionsMiddleware(false, false, true),
+  async (req, res) => {
+    try {
+      await cardsValidationService.cardIdValidation(req.params.id);
+      await cardsValidationService.createCardValidation(req.body);
+      let normalCard = await normalizeCard(req.body, req.userData._id);
+      const cardFromDB = await cardsServiceModel.updateCard(
+        req.params.id,
+        normalCard
+      );
+      res.json(cardFromDB);
+    } catch (err) {
+      handleError(res, err.message, 400);
+    }
+  }
+);
 
 // admin or biz owner
 router.delete(
