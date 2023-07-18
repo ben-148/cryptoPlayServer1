@@ -5,7 +5,8 @@ const normalizeCard = require("../../model/cardsService/helpers/normalizationCar
 const cardsValidationService = require("../../validation/cardsValidationService");
 const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 const authmw = require("../../middleware/authMiddleware");
-
+const Card = require("../../model/mongodb/cards/Card");
+const CustomError = require("../../utils/CustomError");
 // all
 router.get("/", async (req, res) => {
   try {
@@ -77,6 +78,7 @@ router.post(
   }
 });
  */
+
 router.put(
   "/:id",
   authmw,
@@ -92,10 +94,33 @@ router.put(
       );
       res.json(cardFromDB);
     } catch (err) {
-      handleError(res, err.message, 400);
+      res.status(400).json(err);
     }
   }
 );
+
+router.patch("/:id", authmw, async (req, res) => {
+  try {
+    const cardId = req.params.id;
+    const userId = req.userData._id;
+    await cardsValidationService.cardIdValidation(cardId);
+    const cardFromDB = await cardsServiceModel.getCardById(req.params.id);
+    if (cardFromDB) {
+      if (cardFromDB.likes.includes(userId)) {
+        await cardsServiceModel.unLikeCard(userId, cardId);
+        res.json(cardFromDB);
+      } else {
+        await cardsServiceModel.likeCard(userId, cardId);
+        res.json(cardFromDB);
+      }
+    } else {
+      throw new CustomError("did not find card");
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 // admin or biz owner
 router.delete(

@@ -28,6 +28,22 @@ const updateCard = (id, cardToUpdate) => {
   });
 };
 
+const likeCard = (userId, cardId) => {
+  return Card.findByIdAndUpdate(
+    cardId,
+    { $push: { likes: userId } },
+    { new: true }
+  );
+};
+
+const unLikeCard = (userId, cardId) => {
+  return Card.findByIdAndUpdate(
+    cardId,
+    { $pull: { likes: userId } },
+    { new: true }
+  );
+};
+
 const deleteCard = (id) => {
   return Card.findByIdAndDelete(id);
 };
@@ -40,4 +56,6 @@ module.exports = {
   updateCard,
   deleteCard,
   getUserCards,
+  likeCard,
+  unLikeCard,
 };

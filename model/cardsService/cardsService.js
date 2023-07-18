@@ -37,6 +37,22 @@ const updateCard = (id, cardToUpdate) => {
   }
 };
 
+const likeCard = (userId, cardId) => {
+  switch (dbOption) {
+    case "mongo":
+    default:
+      return cardsServiceMongo.likeCard(userId, cardId);
+  }
+};
+
+const unLikeCard = (userId, cardId) => {
+  switch (dbOption) {
+    case "mongo":
+    default:
+      return cardsServiceMongo.unLikeCard(userId, cardId);
+  }
+};
+
 const deleteCard = (id) => {
   if (dbOption === "mongo") {
     return cardsServiceMongo.deleteCard(id);
@@ -51,4 +67,6 @@ module.exports = {
   updateCard,
   deleteCard,
   getUserCards,
+  likeCard,
+  unLikeCard,
 };
