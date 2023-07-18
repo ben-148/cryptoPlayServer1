@@ -129,7 +129,7 @@ router.delete(
   permissionsMiddleware(false, true, true),
   async (req, res) => {
     try {
-      //! joi validation
+      await cardsValidationService.cardIdValidation(req.params.id);
       const cardFromDB = await cardsServiceModel.deleteCard(req.params.id);
       if (cardFromDB) {
         res.json({ msg: "card deleted" });
