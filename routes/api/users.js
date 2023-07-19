@@ -9,6 +9,8 @@ const normalizeUser = require("../../model/usersService/helpers/normalizationUse
 const usersServiceModel = require("../../model/usersService/usersService");
 const { generateToken } = require("../../utils/token/tokenService");
 const CustomError = require("../../utils/CustomError");
+const authmw = require("../../middleware/authMiddleware");
+const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 
 //http://localhost:8181/api/users
 router.post("/", async (req, res) => {
@@ -26,13 +28,6 @@ router.post("/", async (req, res) => {
 //http://localhost:8181/api/auth/login
 router.post("/login", async (req, res) => {
   try {
-    /**
-     * *joi
-     * *get user from database
-     * *check password
-     * *create token
-     * *send to user
-     */
     await loginUserValidation(req.body);
     const userData = await usersServiceModel.getUserByEmail(req.body.email);
     if (!userData) throw new CustomError("invalid email and/or password");
@@ -52,5 +47,21 @@ router.post("/login", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.get(
+  "/",
+  authmw,
+  permissionsMiddleware(false, true, false),
+  async (req, res) => {
+    try {
+      const users = await usersServiceModel.getAllUsers();
+      res.json(users);
+    } catch (err) {
+      console.log(chalk.red("Failed to retrieve users:"));
+      console.error(err);
+      res.status(500).json({ error: "Failed to retrieve users" });
+    }
+  }
+);
 
 module.exports = router;

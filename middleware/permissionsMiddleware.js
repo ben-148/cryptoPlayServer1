@@ -42,7 +42,7 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }
-    res.status(401).json({ msg: "you not allowed to edit this card" });
+    res.status(401).json({ msg: "you have no permission for this request" });
   };
 };
 
