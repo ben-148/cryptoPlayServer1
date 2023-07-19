@@ -20,8 +20,15 @@ const getAllUsers = () => {
   }
 };
 
+const getUserById = (id) => {
+  if (dbOption === "mongo") {
+    return usersServiceMongo.getUserById(id);
+  }
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
   getAllUsers,
+  getUserById,
 };

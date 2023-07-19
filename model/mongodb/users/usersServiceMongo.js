@@ -13,8 +13,13 @@ const getAllUsers = () => {
   return User.find();
 };
 
+const getUserById = (id) => {
+  return User.findById(id);
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
   getAllUsers,
+  getUserById,
 };

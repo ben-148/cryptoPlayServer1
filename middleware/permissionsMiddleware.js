@@ -28,11 +28,14 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
   isBizOwner = biz owner
 */
 
-const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
+const permissionsMiddleware = (isBiz, isAdmin, isBizOwner, isUser) => {
   return (req, res, next) => {
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
+    console.log(req.params.id);
+    console.log(req.userData._id);
+
     if (isBiz === req.userData.isBusiness && isBiz === true) {
       return next();
     }
@@ -41,6 +44,9 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner) => {
     }
     if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
+    }
+    if (isUser && req.userData._id == req.params.id) {
+      return next();
     }
     res.status(401).json({ msg: "you have no permission for this request" });
   };

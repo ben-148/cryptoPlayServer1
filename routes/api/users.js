@@ -4,6 +4,7 @@ const hashService = require("../../utils/hash/hashService");
 const {
   registerUserValidation,
   loginUserValidation,
+  userIdValidation,
 } = require("../../validation/authValidationService");
 const normalizeUser = require("../../model/usersService/helpers/normalizationUserService");
 const usersServiceModel = require("../../model/usersService/usersService");
@@ -60,6 +61,24 @@ router.get(
       console.log(chalk.red("Failed to retrieve users:"));
       console.error(err);
       res.status(500).json({ error: "Failed to retrieve users" });
+    }
+  }
+);
+
+router.get(
+  "/:id",
+  authmw,
+  permissionsMiddleware(false, true, false, true),
+  async (req, res) => {
+    try {
+      // await userIdValidation(req.params.id);
+      // console.log("🚀 ~ file: users.js:75 ~ req:", req.params.id);
+      console.log("User ID:", req.params.id); // Add this line to check the user ID
+
+      const userFromDB = await usersServiceModel.getUserById(req.params.id);
+      res.json(userFromDB);
+    } catch (err) {
+      res.status(400).json(err);
     }
   }
 );
