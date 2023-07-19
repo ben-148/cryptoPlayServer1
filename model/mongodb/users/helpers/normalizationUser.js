@@ -8,6 +8,11 @@ const normalizeUser = (userData) => {
       "https://cdn.pixabay.com/photo/2020/04/07/17/01/chicks-5014152_960_720.jpg",
     alt: userData.image.alt || "yellow fluffy chickens",
   };
+  if (!userData.name.middleName) {
+    userData.name.firstName = userData.name.firstName;
+    userData.name.middleName = "";
+    userData.name.lastName = userData.name.lastName;
+  }
   return {
     ...userData,
     address: {

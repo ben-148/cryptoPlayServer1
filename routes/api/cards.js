@@ -142,14 +142,4 @@ router.delete(
   }
 );
 
-/*
-  under the hood
-  let permissionsMiddleware2 = permissionsMiddleware(false, true, false)
-  router.delete(
-  "/:id",
-  authmw,
-  permissionsMiddleware2,
-  (req, res)=>{- - -});
-*/
-
 module.exports = router;

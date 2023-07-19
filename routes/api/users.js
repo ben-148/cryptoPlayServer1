@@ -10,22 +10,14 @@ const usersServiceModel = require("../../model/usersService/usersService");
 const { generateToken } = require("../../utils/token/tokenService");
 const CustomError = require("../../utils/CustomError");
 
-//http://localhost:8181/api/auth/register
-router.post("/register", async (req, res) => {
+//http://localhost:8181/api/users
+router.post("/", async (req, res) => {
   try {
-    /*
-     * joi
-     * email unique - mongoose -> mongo
-     * encrypt the password
-     * normalize
-     * create user
-     * response user created
-     */
     await registerUserValidation(req.body);
     req.body.password = await hashService.generateHash(req.body.password);
-    req.body = normalizeUser(req.body);
-    await usersServiceModel.registerUser(req.body);
-    res.json({ msg: "register" });
+    user = normalizeUser(req.body);
+    await usersServiceModel.registerUser(user);
+    res.json(user);
   } catch (err) {
     res.status(400).json(err);
   }
