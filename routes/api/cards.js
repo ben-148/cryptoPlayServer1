@@ -37,7 +37,6 @@ router.get("/:id", async (req, res) => {
   try {
     //! joi validation
     await cardsValidationService.cardIdValidation(req.params.id);
-
     const cardFromDB = await cardsServiceModel.getCardById(req.params.id);
     res.json(cardFromDB);
   } catch (err) {

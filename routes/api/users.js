@@ -5,6 +5,7 @@ const {
   registerUserValidation,
   loginUserValidation,
   userIdValidation,
+  userUpdatedValidation,
 } = require("../../validation/authValidationService");
 const normalizeUser = require("../../model/usersService/helpers/normalizationUserService");
 const usersServiceModel = require("../../model/usersService/usersService");
@@ -12,6 +13,7 @@ const { generateToken } = require("../../utils/token/tokenService");
 const CustomError = require("../../utils/CustomError");
 const authmw = require("../../middleware/authMiddleware");
 const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
+const cardsValidationService = require("../../validation/cardsValidationService");
 
 //http://localhost:8181/api/users
 router.post("/", async (req, res) => {
@@ -71,12 +73,38 @@ router.get(
   permissionsMiddleware(false, true, false, true),
   async (req, res) => {
     try {
-      // await userIdValidation(req.params.id);
-      // console.log("🚀 ~ file: users.js:75 ~ req:", req.params.id);
-      console.log("User ID:", req.params.id); // Add this line to check the user ID
+      // console.log("before", req.params.id);
+      // await cardsValidationService.cardIdValidation(req.params.id);
+      await userIdValidation(req.params.id);
+      console.log("after1", req.params.id);
 
       const userFromDB = await usersServiceModel.getUserById(req.params.id);
       res.json(userFromDB);
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  }
+);
+
+router.put(
+  "/:id",
+  authmw,
+  permissionsMiddleware(false, false, false, true),
+  async (req, res) => {
+    try {
+      await cardsValidationService.cardIdValidation(req.params.id);
+      // await userIdValidation(req.params.id);
+      await userUpdatedValidation(req.body);
+      const normalUser = normalizeUser(req.body);
+      const updatedUser = await usersServiceModel.updateUser(
+        req.params.id,
+        normalUser
+      );
+      if (updatedUser) {
+        res.json({ msg: "the user is updated!", updatedUser });
+      } else {
+        throw new CustomError("Undefind user");
+      }
     } catch (err) {
       res.status(400).json(err);
     }

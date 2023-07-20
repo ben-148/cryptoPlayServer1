@@ -17,9 +17,16 @@ const getUserById = (id) => {
   return User.findById(id);
 };
 
+const updateUser = (id, userToUpdate) => {
+  return User.findByIdAndUpdate(id, userToUpdate, {
+    new: true,
+  });
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
   getAllUsers,
   getUserById,
+  updateUser,
 };

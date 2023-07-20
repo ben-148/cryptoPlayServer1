@@ -26,9 +26,18 @@ const getUserById = (id) => {
   }
 };
 
+const updateUser = (id, userToUpdate) => {
+  switch (dbOption) {
+    case "mongo":
+    default:
+      return usersServiceMongo.updateUser(id, userToUpdate);
+  }
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
   getAllUsers,
   getUserById,
+  updateUser,
 };
