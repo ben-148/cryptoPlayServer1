@@ -33,6 +33,10 @@ const updateUserBizStatus = (id) => {
   ).select(["-password"]);
 };
 
+const deleteUser = (id) => {
+  return User.findByIdAndDelete(id).select(["-password", "-createdAt", "-__v"]);
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
@@ -40,4 +44,5 @@ module.exports = {
   getUserById,
   updateUser,
   updateUserBizStatus,
+  deleteUser,
 };

@@ -42,6 +42,14 @@ const updateUserBizStatus = (id) => {
   }
 };
 
+const deleteUser = (id) => {
+  switch (dbOption) {
+    case "mongo":
+    default:
+      return usersServiceMongo.deleteUser(id);
+  }
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
@@ -49,4 +57,5 @@ module.exports = {
   getUserById,
   updateUser,
   updateUserBizStatus,
+  deleteUser,
 };

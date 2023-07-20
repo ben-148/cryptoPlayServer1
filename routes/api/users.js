@@ -131,4 +131,27 @@ router.patch(
   }
 );
 
+router.delete(
+  "/:id",
+  authmw,
+  permissionsMiddleware(false, true, false, true),
+  async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const user = await usersServiceModel.getUserById(userId);
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+      const deletedUser = await usersServiceModel.deleteUser(userId);
+      res.json({
+        msg: `user - ${deletedUser.name.firstName} ${deletedUser.name.lastName} deleted`,
+      });
+    } catch (err) {
+      console.log(chalk.red("User Deletion Error:"));
+      console.error(err);
+      res.status(500).json({ error: "Failed to delete user" });
+    }
+  }
+);
+
 module.exports = router;
