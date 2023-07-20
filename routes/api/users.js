@@ -76,7 +76,7 @@ router.get(
       // console.log("before", req.params.id);
       // await cardsValidationService.cardIdValidation(req.params.id);
       await userIdValidation(req.params.id);
-      console.log("after1", req.params.id);
+      // console.log("after1", req.params.id);
 
       const userFromDB = await usersServiceModel.getUserById(req.params.id);
       res.json(userFromDB);
@@ -92,8 +92,9 @@ router.put(
   permissionsMiddleware(false, false, false, true),
   async (req, res) => {
     try {
-      await cardsValidationService.cardIdValidation(req.params.id);
-      // await userIdValidation(req.params.id);
+      // await cardsValidationService.cardIdValidation(req.params.id);
+      await userIdValidation(req.params.id);
+      // console.log("aftervalid", req.params.id);
       await userUpdatedValidation(req.body);
       const normalUser = normalizeUser(req.body);
       const updatedUser = await usersServiceModel.updateUser(
@@ -106,6 +107,25 @@ router.put(
         throw new CustomError("Undefind user");
       }
     } catch (err) {
+      res.status(400).json(err);
+    }
+  }
+);
+
+router.patch(
+  "/:id",
+  authmw,
+  permissionsMiddleware(false, false, false, true),
+  async (req, res) => {
+    try {
+      await userIdValidation(req.params.id);
+      await usersServiceModel.updateUserBizStatus(req.params.id);
+      let updatedUser = await usersServiceModel.getUserById(req.params.id);
+
+      res.status(200).json({ msg: "biz status is updated!", updatedUser });
+    } catch (err) {
+      console.log(chalk.red("User Patch Error:"));
+      console.error(err);
       res.status(400).json(err);
     }
   }

@@ -33,8 +33,8 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner, isUser) => {
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
-    console.log(req.params.id);
-    console.log(req.userData._id);
+    console.log("from params", req.params.id);
+    console.log("from userId", req.userData._id);
 
     if (isBiz === req.userData.isBusiness && isBiz === true) {
       return next();
@@ -45,11 +45,11 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner, isUser) => {
     if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
       return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }
-    if (isUser && req.userData._id == req.params.id) {
+    if (isUser && req.userData._id === req.params.id) {
       return next();
     }
     if (isUser && req.userData._id !== req.params.id) {
-      return res.status(401).json({ msg: "userId is not correct" });
+      return res.status(401).json({ msg: "paramsId is not correct" });
     }
     res.status(401).json({ msg: "you have no permission for this request" });
   };

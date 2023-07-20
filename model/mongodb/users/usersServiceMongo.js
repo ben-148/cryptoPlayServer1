@@ -23,10 +23,21 @@ const updateUser = (id, userToUpdate) => {
   });
 };
 
+const updateUserBizStatus = (id) => {
+  return User.findByIdAndUpdate(
+    id,
+    [{ $set: { isBusiness: { $not: "$isBusiness" } } }],
+    {
+      new: true,
+    }
+  ).select(["-password"]);
+};
+
 module.exports = {
   registerUser,
   getUserByEmail,
   getAllUsers,
   getUserById,
   updateUser,
+  updateUserBizStatus,
 };
