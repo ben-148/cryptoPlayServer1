@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
     await usersServiceModel.registerUser(user);
     res.json(user);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(404).json(err);
   }
 });
 
@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
     });
     res.json({ token });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(404).json(err);
   }
 });
 
@@ -62,7 +62,7 @@ router.get(
     } catch (err) {
       console.log(chalk.red("Failed to retrieve users:"));
       console.error(err);
-      res.status(500).json({ error: "Failed to retrieve users" });
+      res.status(400).json({ error: "Failed to retrieve users" });
     }
   }
 );
@@ -76,8 +76,6 @@ router.get(
       // console.log("before", req.params.id);
       // await cardsValidationService.cardIdValidation(req.params.id);
       await userIdValidation(req.params.id);
-      // console.log("after1", req.params.id);
-
       const userFromDB = await usersServiceModel.getUserById(req.params.id);
       res.json(userFromDB);
     } catch (err) {
@@ -104,7 +102,7 @@ router.put(
       if (updatedUser) {
         res.json({ msg: "the user is updated!", updatedUser });
       } else {
-        throw new CustomError("Undefind user");
+        throw new CustomError("didnt find the user");
       }
     } catch (err) {
       res.status(400).json(err);
@@ -149,7 +147,7 @@ router.delete(
     } catch (err) {
       console.log(chalk.red("delete failed"));
       console.error(err);
-      res.status(500).json({ error: "Failed to delete user" });
+      res.status(400).json({ error: "Failed to delete user" });
     }
   }
 );

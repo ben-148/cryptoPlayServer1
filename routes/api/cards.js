@@ -62,22 +62,6 @@ router.post(
   }
 );
 
-// admin or biz owner
-/* router.put("/:id", async (req, res) => {
-  try {
-    //! joi validation
-    //! normalize
-    const cardFromDB = await cardsServiceModel.updateCard(
-      req.params.id,
-      req.body
-    );
-    res.json(cardFromDB);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
- */
-
 router.put(
   "/:id",
   authmw,

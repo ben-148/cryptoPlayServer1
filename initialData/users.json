@@ -1,15 +1,15 @@
 [
   {
     "name": {
-      "firstName": "john",
-      "lastName": "wich"
+      "firstName": "Ben",
+      "lastName": "Oved"
     },
     "phone": "0500000000",
-    "email": "john@gmail.com",
+    "email": "ben@gmail.com",
     "password": "Aa123456!",
     "address": {
       "country": "Israel",
-      "city": "Ashkeluna",
+      "city": "netanya",
       "street": "nof ha hof",
       "houseNumber": 255
     },
@@ -17,26 +17,26 @@
   },
   {
     "name": {
-      "firstName": "john",
-      "lastName": "sinay"
+      "firstName": "adir",
+      "lastName": "dahan"
     },
     "phone": "0500000000",
-    "email": "johnsinay@gmail.com",
+    "email": "adir@gmail.com",
     "password": "Aa123456!",
     "address": {
       "country": "Israel",
-      "city": "Ashkeluna",
-      "street": "nof ha hof",
-      "houseNumber": 255
+      "city": "shoosha",
+      "street": "gan eden",
+      "houseNumber": 4
     }
   },
   {
     "name": {
-      "firstName": "kenny",
-      "lastName": "mc"
+      "firstName": "busi",
+      "lastName": "ness"
     },
     "phone": "0500000000",
-    "email": "kenny@gmail.com",
+    "email": "busi@gmail.com",
     "password": "Aa123456!",
     "address": {
       "country": "Israel",
