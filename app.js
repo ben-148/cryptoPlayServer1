@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const logger = require("morgan");
+const logger = require("./utils/loggers/loggerService");
 const cors = require("cors");
 const apiRouter = require("./routes/api");
 const config = require("config");
@@ -12,18 +12,23 @@ const app = express();
 console.log("file", config.get("file"));
 // console.log("anotherKey", config.get("anotherKey"));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://127.0.0.1:5500",
+      "http://localhost:3000",
+      "http://localhost:8181",
+    ],
+    optionsSuccessStatus: 200,
+  })
+);
 // app.use(
 //   cors({
 //     origin: "http://127.0.0.1:5500",
 //     optionsSuccessStatus: 200,
 //   })
 // );
-app.use(
-  logger(
-    ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"'
-  )
-);
+app.use(logger());
 // app.use(
 //   logger((tokens, req, res) => {
 //     return [

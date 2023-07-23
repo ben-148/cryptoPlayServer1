@@ -147,7 +147,7 @@ router.delete(
         msg: `user - ${deletedUser.name.firstName} ${deletedUser.name.lastName} deleted`,
       });
     } catch (err) {
-      console.log(chalk.red("User Deletion Error:"));
+      console.log(chalk.red("delete failed"));
       console.error(err);
       res.status(500).json({ error: "Failed to delete user" });
     }
