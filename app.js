@@ -5,7 +5,8 @@ const logger = require("./utils/loggers/loggerService");
 const cors = require("cors");
 const apiRouter = require("./routes/api");
 const config = require("config");
-const initialData = require("./initialData/initialData");
+// const initialData = require("./initialData/initialData");
+const fileLogger = require("./fileLogger");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(logger());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(fileLogger);
 // app.use(express.static(path.join(__dirname, "public")));
 app.use("/admin", express.static(path.join(__dirname, "admin")));
 app.use("/api", apiRouter);
