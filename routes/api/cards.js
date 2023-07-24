@@ -8,6 +8,7 @@ const authmw = require("../../middleware/authMiddleware");
 const Card = require("../../model/mongodb/cards/Card");
 const CustomError = require("../../utils/CustomError");
 const generateBizNumber = require("../../model/mongodb/cards/helpers/generateBizNumber");
+const chalk = require("chalk");
 
 // all
 router.get("/", async (req, res) => {
@@ -28,7 +29,7 @@ router.get("/my-cards", authmw, async (req, res) => {
       res.json(userCards);
     }
   } catch (err) {
-    console.log(chalk.red("Failed to retrieve user cards:"));
+    console.log(chalk.red("Failed to get user cards:"));
     console.error(err);
     res.status(400).json(err);
   }
