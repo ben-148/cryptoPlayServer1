@@ -7,6 +7,8 @@ const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 const authmw = require("../../middleware/authMiddleware");
 const Card = require("../../model/mongodb/cards/Card");
 const CustomError = require("../../utils/CustomError");
+const generateBizNumber = require("../../model/mongodb/cards/helpers/generateBizNumber");
+
 // all
 router.get("/", async (req, res) => {
   try {
@@ -104,6 +106,27 @@ router.patch("/:id", authmw, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+//BUNOS :)
+
+router.patch(
+  "/bizNum/:id",
+  authmw,
+  permissionsMiddleware(true, false, false),
+  async (req, res) => {
+    try {
+      const cardId = req.params.id;
+      await cardsValidationService.cardIdValidation(cardId);
+      const cardFromDb = await cardsServiceModel.updateCard(cardId, {
+        bizNumber: await generateBizNumber(),
+      });
+      res.json({ msg: `the new biz number is ${cardFromDb.bizNumber}` });
+    } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+    }
+  }
+);
 
 // admin or biz owner
 router.delete(
