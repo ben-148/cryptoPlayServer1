@@ -34,7 +34,7 @@ const permissionsMiddleware = (isBiz, isAdmin, isBizOwner, isUser) => {
       throw new CustomError("must provide userData");
     }
     console.log("from params", req.params.id);
-    console.log("from userId", req.userData._id);
+    console.log("from userADMIN", req.userData.isAdmin);
 
     if (isBiz === req.userData.isBusiness && isBiz === true) {
       return next();

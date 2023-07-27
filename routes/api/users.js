@@ -30,7 +30,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-//http://localhost:8181/api/auth/login
+//http://localhost:8181/api/users/login
 router.post("/login", async (req, res) => {
   try {
     await loginUserValidation(req.body);
@@ -40,6 +40,7 @@ router.post("/login", async (req, res) => {
       req.body.password,
       userData.password
     );
+
     if (!isPasswordMatch)
       throw new CustomError("invalid email and/or password");
     const token = await generateToken({
@@ -49,6 +50,7 @@ router.post("/login", async (req, res) => {
     });
     res.json({ token });
   } catch (err) {
+    console.log("🚀 ~ file: users.js:59 ~ router.post ~ err:", err);
     res.status(404).json(err);
   }
 });

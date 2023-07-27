@@ -121,7 +121,7 @@ Logs in a user with the provided email and password.
 
 - **REST Method:** PATCH
 - **URL Request:** /users/:id
-- **Authentication:** admin or the registered user
+- **Authentication:** the registered user only
 - **Request:**
   - must provide token
 
@@ -193,7 +193,7 @@ Retrieves a list of all cards.
 
 - **REST Method:** GET
 - **URL Request:** /cards/my-card
-- **Authentication Needed:** business user
+- **Authentication Needed:** specific business user
 - **Request:**
   - must provide token
 

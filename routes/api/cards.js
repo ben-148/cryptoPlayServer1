@@ -38,7 +38,6 @@ router.get("/my-cards", authmw, async (req, res) => {
 // all
 router.get("/:id", async (req, res) => {
   try {
-    //! joi validation
     await cardsValidationService.cardIdValidation(req.params.id);
     const cardFromDB = await cardsServiceModel.getCardById(req.params.id);
     res.json(cardFromDB);
@@ -94,10 +93,12 @@ router.patch("/:id", authmw, async (req, res) => {
     if (cardFromDB) {
       if (cardFromDB.likes.includes(userId)) {
         await cardsServiceModel.unLikeCard(userId, cardId);
-        res.json(cardFromDB);
+        const UpdateLikeStatus = await cardsServiceModel.getCardById(cardId);
+        res.json(UpdateLikeStatus);
       } else {
         await cardsServiceModel.likeCard(userId, cardId);
-        res.json(cardFromDB);
+        const UpdateLikeStatus = await cardsServiceModel.getCardById(cardId);
+        res.json(UpdateLikeStatus);
       }
     } else {
       throw new CustomError("did not find card");
@@ -108,12 +109,12 @@ router.patch("/:id", authmw, async (req, res) => {
   }
 });
 
-//BUNOS :)
+//Bonus! :)
 
 router.patch(
   "/bizNum/:id",
   authmw,
-  permissionsMiddleware(true, false, false),
+  permissionsMiddleware(false, true, false, false),
   async (req, res) => {
     try {
       const cardId = req.params.id;
