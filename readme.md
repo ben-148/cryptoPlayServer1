@@ -39,6 +39,8 @@ A server-side project for web apllication with users and cards
 ### my congratulations! Now you can start calling the server using its api.
 
 In order to check it, you can use the postman program
+the passwords for all the inital users is "Aa123456!"
+and you will find the emails at ./initialData/useres
 
 ## API Documentation
 
