@@ -17,7 +17,7 @@ const cardsValidationService = require("../../validation/cardsValidationService"
 const chalk = require("chalk");
 
 //http://localhost:8181/api/users
-router.post("/", async (req, res) => {
+router.post("/", async (req, res, next) => {
   try {
     await registerUserValidation(req.body);
     req.body.password = await hashService.generateHash(req.body.password);
@@ -25,7 +25,8 @@ router.post("/", async (req, res) => {
     await usersServiceModel.registerUser(user);
     res.json(user);
   } catch (err) {
-    res.status(404).json(err);
+    res.status(404).json(err.message);
+    next(err);
   }
 });
 

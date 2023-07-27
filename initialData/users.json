@@ -13,7 +13,8 @@
       "street": "nof ha hof",
       "houseNumber": 255
     },
-    "isAdmin": true
+    "isAdmin": true,
+    "isBusiness": true
   },
   {
     "name": {
@@ -28,7 +29,8 @@
       "city": "shoosha",
       "street": "gan eden",
       "houseNumber": 4
-    }
+    },
+    "isBusiness": false
   },
   {
     "name": {

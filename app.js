@@ -28,9 +28,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/api", apiRouter);
 app.use("/google", googleRouter);
 app.use(fileLogger);
+app.use("/api", apiRouter);
 app.use((req, res, next) => {
   res.status(404).json({ err: "page not found" });
 });

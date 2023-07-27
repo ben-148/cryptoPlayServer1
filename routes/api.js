@@ -6,7 +6,7 @@ const cardsRouter = require("./api/cards");
 
 // http://localhost:8181/api
 
-//http://localhost:8181/api/auth/
+//http://localhost:8181/api/users/
 router.use("/users", authRouter);
 
 //http://localhost:8181/api/cards
