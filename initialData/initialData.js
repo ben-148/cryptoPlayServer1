@@ -11,7 +11,6 @@ const initialData = async () => {
   try {
     let cards = await cardsService.getAllCards();
 
-    console.log("here");
     if (cards.length) {
       return;
     }
@@ -35,5 +34,4 @@ const initialData = async () => {
   }
 };
 
-// initialData();
 module.exports = initialData;

@@ -1,13 +1,10 @@
 const CustomError = require("../utils/CustomError");
 const { getCardById } = require("../model/cardsService/cardsService");
-/*
-    TODO:
-        finish isBizSpecific
-*/
+const { cardIdValidation } = require("../validation/cardsValidationService");
 
 const checkIfBizOwner = async (iduser, idcard, res, next) => {
   try {
-    //! joi the idcard
+    cardIdValidation(idcard);
     const cardData = await getCardById(idcard);
     if (!cardData) {
       return res.status(400).json({ msg: "card not found" });
@@ -22,19 +19,11 @@ const checkIfBizOwner = async (iduser, idcard, res, next) => {
   }
 };
 
-/*
-  isBiz = every biz
-  isAdmin = is admin
-  isBizOwner = biz owner
-*/
-
 const permissionsMiddleware = (isBiz, isAdmin, isBizOwner, isUser) => {
   return (req, res, next) => {
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
-    console.log("from params", req.params.id);
-    console.log("from userADMIN", req.userData.isAdmin);
 
     if (isBiz === req.userData.isBusiness && isBiz === true) {
       return next();

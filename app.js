@@ -5,7 +5,6 @@ const logger = require("./utils/loggers/loggerService");
 const cors = require("cors");
 const apiRouter = require("./routes/api");
 const config = require("config");
-// const initialData = require("./initialData/initialData");
 const fileLogger = require("./fileLogger");
 const app = express();
 const googleRouter = require("./utils/google/google");

@@ -56,7 +56,6 @@ router.post(
       await cardsValidationService.createCardValidation(req.body);
       let normalCard = await normalizeCard(req.body, req.userData._id);
       const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
-      console.log("dataFromMongoose", dataFromMongoose);
       res.json(dataFromMongoose);
     } catch (err) {
       res.status(400).json(err);

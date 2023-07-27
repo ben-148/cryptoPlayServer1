@@ -50,7 +50,6 @@ router.post("/login", async (req, res) => {
     });
     res.json({ token });
   } catch (err) {
-    console.log("🚀 ~ file: users.js:59 ~ router.post ~ err:", err);
     res.status(404).json(err);
   }
 });
@@ -77,8 +76,6 @@ router.get(
   permissionsMiddleware(false, true, false, true),
   async (req, res) => {
     try {
-      // console.log("before", req.params.id);
-      // await cardsValidationService.cardIdValidation(req.params.id);
       await userIdValidation(req.params.id);
       const userFromDB = await usersServiceModel.getUserById(req.params.id);
       res.json(userFromDB);
@@ -94,9 +91,7 @@ router.put(
   permissionsMiddleware(false, false, false, true),
   async (req, res) => {
     try {
-      // await cardsValidationService.cardIdValidation(req.params.id);
       await userIdValidation(req.params.id);
-      // console.log("aftervalid", req.params.id);
       await userUpdatedValidation(req.body);
       const normalUser = normalizeUser(req.body);
       const updatedUser = await usersServiceModel.updateUser(
