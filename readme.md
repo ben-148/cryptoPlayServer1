@@ -1,7 +1,7 @@
 # To Dear Tester,
 
 thank you for testing my project. I just want to notice that I answered 3 out of 4 bonus questions given to us in this project,
-1)logger file - Every bad request will be recorded in a file called special_filelogger.log, located at logs folder.
+1)logger file - Every bad request will be recorded in a file by update located at logs folder.
 2)Change Card BizNumber Option - only for admin user 3) GOOGLE API to have an registered user and token, you will find the info about it at the buttom of this file.
 please give your attention to it :)
 thank you again!

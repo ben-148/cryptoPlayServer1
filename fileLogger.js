@@ -1,7 +1,14 @@
 const fs = require("fs");
 const path = require("path");
 
-const logFilePath = path.join(__dirname, "logs", "special_filelogger.log");
+const today = new Date();
+const day = String(today.getDate()).padStart(2, "0");
+const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+const year = today.getFullYear();
+
+const logFileName = `${day}_${month}_${year}.log`;
+
+const logFilePath = path.join(__dirname, "logs", `${logFileName}`);
 
 function fileLogger(req, res, next) {
   // Capture the start time to calculate response time later if needed
