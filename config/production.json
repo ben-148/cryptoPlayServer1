@@ -1,6 +1,6 @@
 {
   "dbConfig": {
-    "url": "mongodb+srv://admin:Nahnah210@cluster0.edwnw6z.mongodb.net/bizcarddb"
+    "url": "mongodb+srv://admin:Nahnah210@cluster0.edwnw6z.mongodb.net/cryptoPlay"
   },
   "jwt": "asdjkkasd-owkjds",
   "file": "production"

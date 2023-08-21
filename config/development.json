@@ -1,6 +1,6 @@
 {
   "dbConfig": {
-    "url": "mongodb://127.0.0.1:27017/bizcarddb"
+    "url": "mongodb://127.0.0.1:27017/cryptoPlay"
   },
   "jwt": "780y94563hj2y45wopiunj",
   "file": "dev"
