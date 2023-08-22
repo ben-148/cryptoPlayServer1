@@ -10,6 +10,7 @@ const coinsData = require("./coins.json");
 const initialData = async () => {
   try {
     let coins = await coinsService.getAllCoins();
+    // console.log("🚀 ~ file: initialData.js:13 ~ initialData ~ coins:", coins);
 
     if (coins.length) {
       return;
@@ -26,7 +27,7 @@ const initialData = async () => {
     }
     user_id = user_id._id + "";
     for (let coin of coinsData) {
-      coin = await normalizeCoin(coin, user_id);
+      coin = await normalizeCoin(coin);
       await coinsService.createCoin(coin);
     }
   } catch (err) {

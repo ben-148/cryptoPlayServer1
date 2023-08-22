@@ -7,13 +7,13 @@ const {
 } = require("./helpers/mongooseValidation");
 
 const coinSchema = new mongoose.Schema({
-  _id: {
+  name: DEFAULT_STRING_SCHEMA_REQUIRED,
+  codeName: DEFAULT_STRING_SCHEMA_REQUIRED,
+  price: {
     type: String,
     required: true,
   },
-  name: DEFAULT_STRING_SCHEMA_REQUIRED,
-  codeName: DEFAULT_STRING_SCHEMA_REQUIRED,
-  img: Image,
+  image: Image,
 });
 
 const Coin = mongoose.model("coins", coinSchema);

@@ -1,6 +1,6 @@
 const generateBizNumber = require("./generateBizNumber");
 
-const normalizeCoin = async (coin, userId) => {
+const normalizeCoin = async (coin) => {
   if (!coin.image) {
     coin.image = {};
   }
@@ -12,12 +12,13 @@ const normalizeCoin = async (coin, userId) => {
   };
   return {
     ...coin,
-    address: {
-      ...coin.address,
-      state: coin.address.state || "",
-    },
-    bizNumber: coin.bizNumber || (await generateBizNumber()),
-    user_id: coin.user_id || userId,
+    // likes: [],
+    // address: {
+    //   ...coin.address,
+    //   state: coin.address.state || "",
+    // }
+    // bizNumber: coin.bizNumber || (await generateBizNumber()),
+    // user_id: coin.user_id || userId,
   };
 };
 

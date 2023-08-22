@@ -2,9 +2,9 @@ const config = require("config");
 const normalizationCoinMongo = require("../../mongodb/coins/helpers/normalizationCoin");
 const dbOption = config.get("dbOption");
 
-const normalizeCoinService = (coin, userId) => {
+const normalizeCoinService = (coin) => {
   if (dbOption === "mongo") {
-    return normalizationCoinMongo(coin, userId);
+    return normalizationCoinMongo(coin);
   }
 };
 
