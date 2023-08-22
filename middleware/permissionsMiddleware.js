@@ -1,15 +1,15 @@
 const CustomError = require("../utils/CustomError");
-const { getCardById } = require("../model/cardsService/cardsService");
-const { cardIdValidation } = require("../validation/cardsValidationService");
+const { getCoinById } = require("../model/coinsService/coinsService");
+const { coinIdValidation } = require("../validation/coinsValidationService");
 
-const checkIfBizOwner = async (iduser, idcard, res, next) => {
+const checkIfBizOwner = async (iduser, idcoin, res, next) => {
   try {
-    cardIdValidation(idcard);
-    const cardData = await getCardById(idcard);
-    if (!cardData) {
-      return res.status(400).json({ msg: "card not found" });
+    coinIdValidation(idcoin);
+    const coinData = await getCoinById(idcoin);
+    if (!coinData) {
+      return res.status(400).json({ msg: "coin not found" });
     }
-    if (cardData.user_id == iduser) {
+    if (coinData.user_id == iduser) {
       next();
     } else {
       res.status(401).json({ msg: "you not the biz owner" });

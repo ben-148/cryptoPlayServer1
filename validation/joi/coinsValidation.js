@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const createCardSchema = Joi.object({
+const createCoinSchema = Joi.object({
   title: Joi.string().min(2).max(256).required(),
   subTitle: Joi.string().min(2).max(256).required(),
   description: Joi.string().min(2).max(1024).required(),
@@ -41,8 +41,8 @@ const createCardSchema = Joi.object({
 
 const idSchema = Joi.string().length(24).hex().required();
 
-const validateCardSchema = (userInput) => {
-  return createCardSchema.validateAsync(userInput);
+const validateCoinSchema = (userInput) => {
+  return createCoinSchema.validateAsync(userInput);
 };
 
 const validateIdSchema = (idToCheck) => {
@@ -50,6 +50,6 @@ const validateIdSchema = (idToCheck) => {
 };
 
 module.exports = {
-  validateCardSchema,
+  validateCoinSchema,
   validateIdSchema,
 };

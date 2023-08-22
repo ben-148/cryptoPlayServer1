@@ -1,17 +1,17 @@
 const usersService = require("../model/usersService/usersService");
-const cardsService = require("../model/cardsService/cardsService");
+const coinsService = require("../model/coinsService/coinsService");
 const hashService = require("../utils/hash/hashService");
 const normalizeUser = require("../model/usersService/helpers/normalizationUserService");
-const normalizeCard = require("../model/cardsService/helpers/normalizationCardService");
+const normalizeCoin = require("../model/coinsService/helpers/normalizationCoinService");
 
 const usersData = require("./users.json");
-const cardsData = require("./cards.json");
+const coinsData = require("./coins.json");
 
 const initialData = async () => {
   try {
-    let cards = await cardsService.getAllCards();
+    let coins = await coinsService.getAllCoins();
 
-    if (cards.length) {
+    if (coins.length) {
       return;
     }
     let users = await usersService.getAllUsers();
@@ -25,9 +25,9 @@ const initialData = async () => {
       user_id = await usersService.registerUser(user);
     }
     user_id = user_id._id + "";
-    for (let card of cardsData) {
-      card = await normalizeCard(card, user_id);
-      await cardsService.createCard(card);
+    for (let coin of coinsData) {
+      coin = await normalizeCoin(coin, user_id);
+      await coinsService.createCoin(coin);
     }
   } catch (err) {
     console.log("err from initial", err);
