@@ -1,2 +1,0 @@
-2023-08-22T14:39:05.449Z - GET /api/cards/get-my-fav-cards - Status: 404
-Response: {"err":"page not found"}

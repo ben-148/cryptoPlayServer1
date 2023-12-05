@@ -8,11 +8,11 @@ const normalizeCoin = async (coin) => {
     url:
       coin.image.url ||
       "https://cdn.pixabay.com/photo/2020/04/07/17/01/chicks-5014152_960_720.jpg",
-    alt: coin.image.alt || "yellow fluffy chickens",
+    alt: coin.image.alt || `${coin.name} + image`,
   };
   return {
     ...coin,
-    // likes: [],
+    likes: [],
     // address: {
     //   ...coin.address,
     //   state: coin.address.state || "",

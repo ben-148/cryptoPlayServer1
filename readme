@@ -103,7 +103,7 @@ Retrieves a specific user by their ID.
         - Required.
       - `street`: The street of the user's address. [string]
         - Required.
-      - `houseNumber`: The house number of the user's address. [number]
+      - `houseNumber`: The house number of the user's address. [string]
         - Required.
         - Minimum length: 1.
       - `zip`: The ZIP code of the user's address. [number]

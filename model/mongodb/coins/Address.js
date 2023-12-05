@@ -10,7 +10,7 @@ const Address = new mongoose.Schema({
   city: DEFAULT_STRING_SCHEMA_REQUIRED,
   street: DEFAULT_STRING_SCHEMA_REQUIRED,
   houseNumber: {
-    type: Number,
+    type: String,
     required: true,
     trim: true,
     minLength: 1,

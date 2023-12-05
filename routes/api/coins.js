@@ -35,6 +35,17 @@ router.get("/my-coins", authmw, async (req, res) => {
   }
 });
 
+router.get("/get-my-fav-coins", authmw, async (req, res) => {
+  try {
+    let user = req.user;
+    const coins = await Coin.find({ likes: user._id });
+    res.json(coins);
+  } catch (err) {
+    console.log(chalk.redBright(err));
+    return res.status(500).send(err);
+  }
+});
+
 // all
 router.get("/:id", async (req, res) => {
   try {
@@ -46,11 +57,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// biz only
+// admin only
 router.post(
   "/",
   authmw,
-  permissionsMiddleware(true, false, false),
+  permissionsMiddleware(false, true, false),
   async (req, res) => {
     try {
       await coinsValidationService.createCoinValidation(req.body);
@@ -66,7 +77,7 @@ router.post(
 router.put(
   "/:id",
   authmw,
-  permissionsMiddleware(false, false, true),
+  permissionsMiddleware(false, true, false),
   async (req, res) => {
     try {
       await coinsValidationService.coinIdValidation(req.params.id);

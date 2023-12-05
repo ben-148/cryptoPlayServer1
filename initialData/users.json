@@ -11,7 +11,7 @@
       "country": "Israel",
       "city": "netanya",
       "street": "nof ha hof",
-      "houseNumber": 255
+      "houseNumber": "255"
     },
     "isAdmin": true,
     "isBusiness": true
@@ -28,7 +28,7 @@
       "country": "Israel",
       "city": "shoosha",
       "street": "gan eden",
-      "houseNumber": 4
+      "houseNumber": "4"
     },
     "isBusiness": false
   },
@@ -44,7 +44,7 @@
       "country": "Israel",
       "city": "Ashkeluna",
       "street": "nof ha hof",
-      "houseNumber": 255
+      "houseNumber": "255"
     },
     "isBusiness": true
   }

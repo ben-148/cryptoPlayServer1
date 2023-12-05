@@ -26,16 +26,15 @@ const updateUserSchema = Joi.object({
   }),
   address: Joi.object()
     .keys({
-      state: Joi.string().min(2).max(256),
+      state: Joi.string().min(2).max(256).allow(""),
       country: Joi.string().min(2).max(256).required(),
       city: Joi.string().min(2).max(256).required(),
       street: Joi.string().min(2).max(256).required(),
-      houseNumber: Joi.number().min(1).required(),
+      houseNumber: Joi.string().min(1).max(256).required(),
       zip: Joi.number().allow("", 0),
     })
     .required(),
   isAdmin: Joi.boolean().allow(""),
-  isBusiness: Joi.boolean().required(),
 });
 
 const validateUpdateUserSchema = (userInput) =>

@@ -3,6 +3,7 @@ const Joi = require("joi");
 const createCoinSchema = Joi.object({
   name: Joi.string().required(),
   codeName: Joi.string().required(),
+  description: Joi.string().required(),
   image: Joi.object().keys({
     url: Joi.string().regex(
       new RegExp(

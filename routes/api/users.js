@@ -15,6 +15,7 @@ const authmw = require("../../middleware/authMiddleware");
 const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 const coinsValidationService = require("../../validation/coinsValidationService");
 const chalk = require("chalk");
+// const User = require("../../model/mongodb/users/User");
 
 //http://localhost:8181/api/users
 router.post("/", async (req, res, next) => {
@@ -85,6 +86,36 @@ router.get(
   }
 );
 
+// New route to get user information based on the token
+router.get("/user/info", authmw, async (req, res) => {
+  try {
+    // Extract user ID from the token
+    const userId = req.userData._id;
+
+    // Retrieve user information by ID
+    const userFromDB = await usersServiceModel.getUserById(userId);
+    res.json(userFromDB);
+  } catch (err) {
+    console.log("Error fetching user info:", err);
+    res.status(400).json(err);
+  }
+});
+
+/* router.get("/user/info", authmw, async (req, res) => {
+  console.log("🚀 ~ file: users.js:105 ~ router.get ~ req:", req);
+  try {
+    const userFromDB = await usersServiceModel.getUserById(req.params.id);
+    res.json(userFromDB);
+    console.log(
+      "🚀 ~ file: users.js:93 ~ router.get ~ userFromDB:",
+      userFromDB
+    );
+  } catch (err) {
+    console.log("🚀 ~ file: users.js:98 ~ router.get ~ err:", err);
+    res.status(400).json(err);
+  }
+});
+ */
 router.put(
   "/:id",
   authmw,
@@ -98,8 +129,20 @@ router.put(
         req.params.id,
         normalUser
       );
+      console.log("🚀 ~ file: users.js:132 ~ updatedUser:", updatedUser);
+
+      const token = await generateToken({
+        _id: updatedUser._id,
+        isAdmin: updatedUser.isAdmin,
+      });
+
       if (updatedUser) {
-        res.json({ msg: "the user is updated!", updatedUser });
+        res.json({
+          msg: "the user is updated!",
+          updatedUser,
+          token,
+        });
+        // console.log("🚀 ~ file: users.js:134 ~ updatedUser:", updatedUser);
       } else {
         throw new CustomError("didnt find the user");
       }

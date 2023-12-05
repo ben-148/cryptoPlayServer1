@@ -1,8 +1,0 @@
-2023-07-27T12:54:32.315Z - POST /api/users/logi - Status: 404
-Response: {"err":"page not found"}
-2023-07-27T12:54:33.337Z - POST /api/users/logi - Status: 404
-Response: {"err":"page not found"}
-2023-07-27T12:56:46.383Z - POST /api/users/logi - Status: 404
-Response: {"err":"page not found"}
-2023-07-27T12:56:52.354Z - POST /login - Status: 404
-Response: {"_original":{"email":"busi@gmail.com","password":"Aa123456"},"details":[{"message":"\"password\" with value \"Aa123456\" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/","path":["password"],"type":"string.pattern.base","context":{"regex":{},"value":"Aa123456","label":"password","key":"password"}}]}

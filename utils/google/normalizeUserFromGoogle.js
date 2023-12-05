@@ -20,7 +20,7 @@ const normalizeUserFromGoogle = ({
       country: "defualt",
       city: "address",
       street: "for google user",
-      houseNumber: 156,
+      houseNumber: "156",
       zip: "",
     },
   };

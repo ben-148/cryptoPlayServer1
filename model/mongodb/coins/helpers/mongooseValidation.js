@@ -8,7 +8,7 @@ const URL = {
 
 const DEFAULT_STRING_SCHEMA = {
   type: String,
-  maxLength: 256,
+  maxLength: 10000,
   trim: true,
 };
 

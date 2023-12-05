@@ -9,10 +9,12 @@ const {
 const coinSchema = new mongoose.Schema({
   name: DEFAULT_STRING_SCHEMA_REQUIRED,
   codeName: DEFAULT_STRING_SCHEMA_REQUIRED,
+  description: DEFAULT_STRING_SCHEMA_REQUIRED,
   price: {
     type: String,
     required: true,
   },
+  likes: [String],
   image: Image,
 });
 
