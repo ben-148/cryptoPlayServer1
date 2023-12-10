@@ -6,3 +6,19 @@ Response: {"error":"Internal Server Error"}
 Response: {"error":"Internal Server Error"}
 2023-12-10T01:33:49.158Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 500
 Response: {"error":"Internal Server Error"}
+2023-12-10T17:31:26.234Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T17:38:31.478Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T17:38:56.757Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T17:40:44.278Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T18:27:22.687Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T18:56:42.442Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T19:08:36.965Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-10T19:21:01.475Z - PUT /trade/65711c7802a13811b533cfe8 - Status: 500
+Response: {"error":"Internal Server Error"}
