@@ -23,6 +23,17 @@ const updateUser = (id, userToUpdate) => {
   });
 };
 
+// const buyCoin = (coinId, amount) => {
+//   return User.findByIdAndUpdate;
+// };
+
+const buyCoin = (userId, coinId, amount) => {
+  return User.findByIdAndUpdate(
+    userId,
+    { $push: { portfolio: { coinId, amount } } },
+    { new: true }
+  );
+};
 const updateUserBizStatus = (id) => {
   return User.findByIdAndUpdate(
     id,
@@ -45,4 +56,5 @@ module.exports = {
   updateUser,
   updateUserBizStatus,
   deleteUser,
+  buyCoin,
 };

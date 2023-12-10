@@ -1,0 +1,34 @@
+2023-12-07T00:00:56.933Z - POST /login - Status: 404
+Response: {"_original":{"email":"shimi@gmail.com","password":"Aa123456"},"details":[{"message":"\"password\" with value \"Aa123456\" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/","path":["password"],"type":"string.pattern.base","context":{"regex":{},"value":"Aa123456","label":"password","key":"password"}}]}
+2023-12-07T00:04:21.498Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-07T00:04:39.061Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-07T00:04:47.523Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-07T00:04:54.373Z - POST /login - Status: 404
+Response: {"_original":{"email":"kem@gmail.com","password":"Aa123456"},"details":[{"message":"\"password\" with value \"Aa123456\" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/","path":["password"],"type":"string.pattern.base","context":{"regex":{},"value":"Aa123456","label":"password","key":"password"}}]}
+2023-12-07T00:40:31.034Z - POST / - Status: 404
+Response: "\"portfolio\" is not allowed"
+2023-12-07T01:06:20.701Z - POST / - Status: 404
+Response: "\"portfolio\" must be of type object"
+2023-12-07T01:15:46.271Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-07T17:56:22.562Z - GET /api/api/users/65711c7702a13811b533cfd3 - Status: 404
+Response: {"err":"page not found"}
+2023-12-07T19:38:37.853Z - GET /api/api/users/65711c7802a13811b533cfe2 - Status: 404
+Response: {"err":"page not found"}
+2023-12-07T19:38:43.972Z - GET /api/api/users/65711c7802a13811b533cfe2 - Status: 404
+Response: {"err":"page not found"}
+2023-12-07T19:38:55.405Z - GET /api/api/users/65711c7802a13811b533cfe2 - Status: 404
+Response: {"err":"page not found"}
+2023-12-07T19:44:05.586Z - GET /userInfo - Status: 400
+Response: {"_original":"userInfo","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"userInfo","label":"value"}}]}
+2023-12-07T19:44:06.455Z - GET /userInfo - Status: 400
+Response: {"_original":"userInfo","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"userInfo","label":"value"}}]}
+2023-12-07T20:08:43.522Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 404
+Response: {"error":"User not found"}
+2023-12-07T20:09:40.331Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 404
+Response: {"error":"User not found"}
+2023-12-07T20:11:31.546Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 500
+Response: {"error":"Internal Server Error"}

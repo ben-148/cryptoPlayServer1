@@ -13,8 +13,7 @@
       "street": "nof ha hof",
       "houseNumber": "255"
     },
-    "isAdmin": true,
-    "isBusiness": true
+    "isAdmin": true
   },
   {
     "name": {
@@ -29,8 +28,7 @@
       "city": "shoosha",
       "street": "gan eden",
       "houseNumber": "4"
-    },
-    "isBusiness": false
+    }
   },
   {
     "name": {
@@ -45,7 +43,6 @@
       "city": "Ashkeluna",
       "street": "nof ha hof",
       "houseNumber": "255"
-    },
-    "isBusiness": true
+    }
   }
 ]

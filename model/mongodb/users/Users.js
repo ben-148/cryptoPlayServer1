@@ -29,6 +29,8 @@ const schema = new mongoose.Schema({
   address: Address,
   isAdmin: { type: Boolean, default: false },
   // isBusiness: { type: Boolean, default: false },
+  amount: { type: Number, default: 1000 }, // Initial balance in USDT
+  portfolio: { type: Array, default: [] }, // Use an empty array as the default value
   createdAt: {
     type: Date,
     default: Date.now,

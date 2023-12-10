@@ -15,7 +15,7 @@ const authmw = require("../../middleware/authMiddleware");
 const permissionsMiddleware = require("../../middleware/permissionsMiddleware");
 const coinsValidationService = require("../../validation/coinsValidationService");
 const chalk = require("chalk");
-// const User = require("../../model/mongodb/users/User");
+const mUser = require("../../model/mongodb/users/Users");
 
 //http://localhost:8181/api/users
 router.post("/", async (req, res, next) => {
@@ -47,7 +47,6 @@ router.post("/login", async (req, res) => {
     const token = await generateToken({
       _id: userData._id,
       isAdmin: userData.isAdmin,
-      isBusiness: userData.isBusiness,
     });
     res.json({ token });
   } catch (err) {
@@ -116,6 +115,7 @@ router.get("/user/info", authmw, async (req, res) => {
   }
 });
  */
+
 router.put(
   "/:id",
   authmw,
@@ -152,6 +152,115 @@ router.put(
   }
 );
 
+router.put("/trade/:id/", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { coinId, tradeAmount, userId, coinAmount } = req.body;
+
+    // Assuming you have a valid user ID and coin ID
+    const user = await mUser.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Perform the trade logic here
+    // Update the user's USDT amount and portfolio based on the trade
+
+    // Example: Update USDT amount
+    user.amount -= tradeAmount;
+
+    const coinInPortfolio = user.portfolio.find((coin) => coin.coinId === id);
+
+    // If the coin is not in the portfolio, execute buyCoin
+    if (!coinInPortfolio) {
+      await usersServiceModel.buyCoin(userId, coinId, coinAmount);
+      // Fetch the updated user data after the buyCoin operation
+      const updatedUser = await mUser.findById(userId);
+      res.json({ updatedUser });
+      return; // Ensure to exit the function after sending the response
+    }
+
+    let { portfolio } = user;
+    console.log("🚀 ~ file: users.js:54 ~ router.put ~ portfolio:", portfolio);
+    let coinAmountAfterTrade = portfolio.map((coin) => {
+      if (coin.coinId === id) {
+        return {
+          ...coin,
+          amount: coin.amount + Number(coinAmount),
+        };
+      }
+      return coin;
+    });
+    user.portfolio = coinAmountAfterTrade;
+
+    // Save the updated user
+    const updatedUser = await user.save();
+
+    res.json({ updatedUser });
+  } catch (error) {
+    console.error("Error during trade:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+/* router.put("/trade/:id/", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { coinId, tradeAmount, userId, coinAmount } = req.body;
+    // console.log("🚀 ~ file: users.js:159 ~ router.put ~ req.body:", req.body);
+
+    // Assuming you have a valid user ID and coin ID
+    const user = await mUser.findById(userId);
+    // console.log("🚀 ~ file: users.js:163 ~ router.put ~ user:", user);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Perform the trade logic here
+    // Update the user's USDT amount and portfolio based on the trade
+
+    // Example: Update USDT amount
+    user.amount -= tradeAmount;
+    // console.log(
+    //   "🚀 ~ file: users.js:172 ~ router.put ~ tradeAmount:",
+    //   tradeAmount
+    // );
+
+    const coinInPortfolio = user.portfolio.find((coin) => coin.coinId === id);
+
+    // If the coin is not in the portfolio, execute buyCoin
+    if (!coinInPortfolio) {
+      const updatePortfolio = await usersServiceModel.buyCoin(
+        userId,
+        coinId,
+        coinAmount
+      );
+      // const updatedUser = await user.save();
+      // res.json({ updatedUser });
+    }
+    let { portfolio } = user;
+    console.log("🚀 ~ file: users.js:54 ~ router.put ~ portfolio:", portfolio);
+    let coinAmountAfterTrade = portfolio.map((coin) => {
+      if (coin.coinId === id) {
+        return {
+          ...coin,
+          amount: coin.amount + Number(coinAmount),
+        };
+      }
+      return coin;
+    });
+    user.portfolio = coinAmountAfterTrade;
+
+    // Save the updated user
+    const updatedUser = await user.save();
+
+    res.json({ updatedUser });
+  } catch (error) {
+    console.error("Error during trade:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+ */
 router.patch(
   "/:id",
   authmw,

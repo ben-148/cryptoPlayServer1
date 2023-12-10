@@ -2,7 +2,7 @@
   {
     "name": "BITCOIN",
     "codeName": "BTC",
-    "price": "29,000",
+    "price": "29000",
     "description": "Bitcoin is a decentralized digital currency, without a central bank or single administrator. It was invented by an unknown person or group of people using the name Satoshi Nakamoto and released as open-source software in 2009. Bitcoins are created as a reward for a process known as mining. They can be exchanged for other currencies, products, and services. Bitcoin has been criticized for its use in illegal transactions, its high electricity consumption, price volatility, and thefts from exchanges.",
     "image": {
       "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/800px-Bitcoin.svg.png",

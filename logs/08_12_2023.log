@@ -1,0 +1,8 @@
+2023-12-08T01:12:59.703Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-08T01:13:11.275Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-08T01:14:08.382Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 500
+Response: {"error":"Internal Server Error"}
+2023-12-08T01:18:58.388Z - PUT /trade/65711c7802a13811b533cfe2 - Status: 500
+Response: {"error":"Internal Server Error"}

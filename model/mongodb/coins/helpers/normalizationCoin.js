@@ -13,6 +13,7 @@ const normalizeCoin = async (coin) => {
   return {
     ...coin,
     likes: [],
+
     // address: {
     //   ...coin.address,
     //   state: coin.address.state || "",

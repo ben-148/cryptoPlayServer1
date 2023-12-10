@@ -49,6 +49,13 @@ const deleteUser = (id) => {
       return usersServiceMongo.deleteUser(id);
   }
 };
+const buyCoin = (userId, coinId, amount) => {
+  switch (dbOption) {
+    case "mongo":
+    default:
+      return usersServiceMongo.buyCoin(userId, coinId, amount);
+  }
+};
 
 module.exports = {
   registerUser,
@@ -58,4 +65,5 @@ module.exports = {
   updateUser,
   updateUserBizStatus,
   deleteUser,
+  buyCoin,
 };

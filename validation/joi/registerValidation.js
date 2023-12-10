@@ -31,6 +31,12 @@ const registerSchema = Joi.object({
     ),
     alt: Joi.string().min(2).max(256).required(),
   }),
+  portfolio: Joi.array().items(
+    Joi.object({
+      id: Joi.string().required(),
+      amount: Joi.number().required(),
+    })
+  ),
   address: Joi.object()
     .keys({
       state: Joi.string().min(2).max(256).allow(""),
@@ -42,7 +48,6 @@ const registerSchema = Joi.object({
     })
     .required(),
   isAdmin: Joi.boolean().allow(""),
-  // isBusiness: Joi.boolean().required(),
 });
 
 const validateRegisterSchema = (userInput) =>

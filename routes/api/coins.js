@@ -37,7 +37,7 @@ router.get("/my-coins", authmw, async (req, res) => {
 
 router.get("/get-my-fav-coins", authmw, async (req, res) => {
   try {
-    let user = req.user;
+    let user = req.userData;
     const coins = await Coin.find({ likes: user._id });
     res.json(coins);
   } catch (err) {
@@ -94,7 +94,7 @@ router.put(
   }
 );
 
-router.patch("/:id", authmw, async (req, res) => {
+router.patch("/coin-like/:id", authmw, async (req, res) => {
   try {
     const coinId = req.params.id;
     const userId = req.userData._id;
@@ -121,7 +121,7 @@ router.patch("/:id", authmw, async (req, res) => {
 
 //Bonus! :)
 
-router.patch(
+/* router.patch(
   "/bizNum/:id",
   authmw,
   permissionsMiddleware(false, true, false, false),
@@ -139,6 +139,7 @@ router.patch(
     }
   }
 );
+ */
 
 // admin or biz owner
 router.delete(
