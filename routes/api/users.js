@@ -168,8 +168,13 @@ router.put("/trade/:id/", async (req, res) => {
     if (action === "buy") {
       const coinInPortfolio = user.portfolio.find((coin) => coin.coinId === id);
 
+      // If the coin is not in the portfolio, execute buyCoin
       if (!coinInPortfolio) {
         await usersServiceModel.buyCoin(userId, coinId, coinAmount);
+        // Fetch the updated user data after the buyCoin operation
+        const updatedUser = await mUser.findById(userId);
+        res.json({ updatedUser });
+        return; // Ensure to exit the function after sending the response
       } else {
         const updatedPortfolio = user.portfolio.map((coin) => {
           if (coin.coinId === id) {
@@ -208,7 +213,7 @@ router.put("/trade/:id/", async (req, res) => {
         return coin;
       });
 
-      user.portfolio = updatedPortfolio;
+      user.portfolio = updatedPortfolio.filter((coin) => coin.amount !== 0);
     }
 
     const updatedUser = await user.save();

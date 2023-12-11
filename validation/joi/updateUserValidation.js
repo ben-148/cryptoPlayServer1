@@ -34,6 +34,14 @@ const updateUserSchema = Joi.object({
       zip: Joi.number().allow("", 0),
     })
     .required(),
+
+  amount: Joi.number().min(0).max(99999999).allow("").optional(),
+  portfolio: Joi.array().items(
+    Joi.object({
+      coinId: Joi.string().required(),
+      amount: Joi.number().min(0).required(),
+    })
+  ),
   isAdmin: Joi.boolean().allow(""),
 });
 
