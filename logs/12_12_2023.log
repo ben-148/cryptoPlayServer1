@@ -1,0 +1,10 @@
+2023-12-12T17:06:16.766Z - GET /getAllUsers - Status: 400
+Response: {"_original":"getAllUsers","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"getAllUsers","label":"value"}}]}
+2023-12-12T17:06:28.342Z - GET /getAllUsers - Status: 400
+Response: {"_original":"getAllUsers","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"getAllUsers","label":"value"}}]}
+2023-12-12T18:14:36.340Z - PATCH /api/api/users/updateAmount/65711c7702a13811b533cfd8 - Status: 404
+Response: {"err":"page not found"}
+2023-12-12T21:15:38.666Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-12T21:15:48.639Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}

@@ -41,6 +41,13 @@ const updateUserBizStatus = (id) => {
       return usersServiceMongo.updateUserBizStatus(id);
   }
 };
+const updateUserAmount = (id, amountToAdd) => {
+  switch (dbOption) {
+    case "mongo":
+    default:
+      return usersServiceMongo.updateUserAmount(id, amountToAdd);
+  }
+};
 
 const deleteUser = (id) => {
   switch (dbOption) {
@@ -74,4 +81,5 @@ module.exports = {
   deleteUser,
   buyCoin,
   sellCoin,
+  updateUserAmount,
 };

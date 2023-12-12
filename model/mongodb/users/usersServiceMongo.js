@@ -92,6 +92,15 @@ const updateUserBizStatus = (id) => {
     }
   ).select(["-password"]);
 };
+const updateUserAmount = (id, amountToAdd) => {
+  return User.findByIdAndUpdate(
+    id,
+    { $inc: { amount: amountToAdd } }, // Use $inc to increment the existing value
+    {
+      new: true,
+    }
+  ).select(["-password"]);
+};
 
 const deleteUser = (id) => {
   return User.findByIdAndDelete(id).select(["-password", "-createdAt", "-__v"]);
@@ -107,4 +116,5 @@ module.exports = {
   deleteUser,
   buyCoin,
   sellCoin,
+  updateUserAmount,
 };

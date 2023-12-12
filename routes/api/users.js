@@ -163,19 +163,25 @@ router.put("/trade/:id/", async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    user.amount -= tradeAmount;
+    // user.amount -= tradeAmount;
 
     if (action === "buy") {
       const coinInPortfolio = user.portfolio.find((coin) => coin.coinId === id);
 
       // If the coin is not in the portfolio, execute buyCoin
       if (!coinInPortfolio) {
+        user.amount -= tradeAmount;
+        const updatedUserAmount = await user.save();
+
         await usersServiceModel.buyCoin(userId, coinId, coinAmount);
         // Fetch the updated user data after the buyCoin operation
+
         const updatedUser = await mUser.findById(userId);
         res.json({ updatedUser });
         return; // Ensure to exit the function after sending the response
       } else {
+        user.amount -= tradeAmount;
+
         const updatedPortfolio = user.portfolio.map((coin) => {
           if (coin.coinId === id) {
             return {
@@ -226,56 +232,29 @@ router.put("/trade/:id/", async (req, res) => {
   }
 });
 
-// router.put("/trade/:id/", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { coinId, tradeAmount, userId, coinAmount } = req.body;
+router.patch(
+  "/updateAmount/:id",
+  authmw,
+  permissionsMiddleware(false, true, false, false),
+  async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const amountToAdd = req.body.amountToAdd; // Assuming the amount to add is sent in the request body
 
-//     // Assuming you have a valid user ID and coin ID
-//     const user = await mUser.findById(userId);
-//     if (!user) {
-//       return res.status(404).json({ error: "User not found" });
-//     }
-
-//     // Perform the trade logic here
-//     // Update the user's USDT amount and portfolio based on the trade
-
-//     // Example: Update USDT amount
-//     user.amount -= tradeAmount;
-
-//     const coinInPortfolio = user.portfolio.find((coin) => coin.coinId === id);
-
-//     // If the coin is not in the portfolio, execute buyCoin
-//     if (!coinInPortfolio) {
-//       await usersServiceModel.buyCoin(userId, coinId, coinAmount);
-//       // Fetch the updated user data after the buyCoin operation
-//       const updatedUser = await mUser.findById(userId);
-//       res.json({ updatedUser });
-//       return; // Ensure to exit the function after sending the response
-//     }
-
-//     let { portfolio } = user;
-//     console.log("🚀 ~ file: users.js:54 ~ router.put ~ portfolio:", portfolio);
-//     let coinAmountAfterTrade = portfolio.map((coin) => {
-//       if (coin.coinId === id) {
-//         return {
-//           ...coin,
-//           amount: coin.amount + Number(coinAmount),
-//         };
-//       }
-//       return coin;
-//     });
-//     user.portfolio = coinAmountAfterTrade;
-
-//     // Save the updated user
-//     const updatedUser = await user.save();
-
-//     res.json({ updatedUser });
-//   } catch (error) {
-//     console.error("Error during trade:", error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
+      // Update the user's amount
+      const updatedUser = await usersServiceModel.updateUserAmount(
+        userId,
+        amountToAdd
+      );
+      const updatedUsersList = await usersServiceModel.getAllUsers();
+      // Respond with the updated user
+      res.json(updatedUsersList);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  }
+);
 
 router.patch(
   "/:id",
