@@ -5,7 +5,7 @@
     "price": "29000",
     "description": "Bitcoin is a decentralized digital currency, without a central bank or single administrator. It was invented by an unknown person or group of people using the name Satoshi Nakamoto and released as open-source software in 2009. Bitcoins are created as a reward for a process known as mining. They can be exchanged for other currencies, products, and services. Bitcoin has been criticized for its use in illegal transactions, its high electricity consumption, price volatility, and thefts from exchanges.",
     "image": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/800px-Bitcoin.svg.png",
+      "url": "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=029",
       "alt": "Bitcoin Logo"
     }
   },
@@ -15,7 +15,7 @@
     "price": "248",
     "description": "Binance Coin is a cryptocurrency used to pay for fees on the Binance cryptocurrency exchange. BNB was initially created as an ERC-20 token on the Ethereum blockchain but later migrated to Binance's own blockchain, Binance Chain. It has various use cases within the Binance ecosystem, including trading fee discounts, participating in token sales, and more.",
     "image": {
-      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS4EmOUlbDTRu0yrNO55Bj796fuKDhtUyDvQlGdBYA&s",
+      "url": "https://cryptologos.cc/logos/binance-coin-bnb-logo.png",
       "alt": "Binance Logo"
     }
   },
@@ -27,6 +27,137 @@
     "image": {
       "url": "https://download.logo.wine/logo/Ethereum/Ethereum-Logo.wine.png",
       "alt": "Ethereum Logo"
+    }
+  },
+  {
+    "name": "RIPPLE",
+    "codeName": "XRP",
+    "price": "1.25",
+    "description": "Ripple (XRP) is a digital payment protocol that operates as both a cryptocurrency and technology protocol for payment remittance. Ripple's digital currency, XRP, acts as a bridge currency to facilitate fast and cost-effective cross-border transactions. The Ripple protocol aims to enable secure, instant, and low-cost global money transfers.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/xrp-xrp-logo.png?v=029",
+      "alt": "Ripple Logo"
+    }
+  },
+  {
+    "name": "CARDANO",
+    "codeName": "ADA",
+    "price": "1.75",
+    "description": "Cardano (ADA) is a blockchain platform that aims to provide a more secure and sustainable infrastructure for the development of decentralized applications (DApps) and smart contracts. Cardano's design is focused on scalability, sustainability, and interoperability. ADA is the native cryptocurrency used on the Cardano platform.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/cardano-ada-logo.png?v=029",
+      "alt": "Cardano Logo"
+    }
+  },
+  {
+    "name": "POLKADOT",
+    "codeName": "DOT",
+    "price": "30",
+    "description": "Polkadot (DOT) is a multi-chain blockchain platform that enables different blockchains to transfer messages and value in a trust-free fashion. It aims to facilitate the transfer of any data or asset type, not just tokens, thereby allowing for a wide range of applications, including decentralized finance (DeFi) and cross-chain communication.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/polkadot-new-dot-logo.png?v=029",
+      "alt": "Polkadot Logo"
+    }
+  },
+  {
+    "name": "LITECOIN",
+    "codeName": "LTC",
+    "price": "150",
+    "description": "Litecoin (LTC) is a peer-to-peer cryptocurrency created by Charlie Lee in 2011. It is often referred to as the 'silver to Bitcoin's gold' and is designed to provide fast and low-cost transactions. Litecoin uses a different hashing algorithm (Scrypt) than Bitcoin (SHA-256) and has a maximum supply of 84 million coins.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/litecoin-ltc-logo.png?v=029",
+      "alt": "Litecoin Logo"
+    }
+  },
+  {
+    "name": "UNISWAP",
+    "codeName": "UNI",
+    "price": "25",
+    "description": "Uniswap (UNI) is a decentralized exchange (DEX) built on the Ethereum blockchain. It enables users to swap various ERC-20 tokens directly from their wallets without the need for a traditional order book. UNI is the native governance token of the Uniswap protocol, allowing holders to participate in the decision-making process.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/uniswap-uni-logo.png",
+      "alt": "Uniswap Logo"
+    }
+  },
+  {
+    "name": "CHAINLINK",
+    "codeName": "LINK",
+    "price": "35",
+    "description": "Chainlink (LINK) is a decentralized oracle network that enables smart contracts on the Ethereum blockchain to securely connect with real-world data, APIs, and payment systems. LINK is the native cryptocurrency used to pay for services on the Chainlink network and as collateral for node operators.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/chainlink-link-logo.png?v=029",
+      "alt": "Chainlink Logo"
+    }
+  },
+  {
+    "name": "DOGECOIN",
+    "codeName": "DOGE",
+    "price": "0.3",
+    "description": "Dogecoin (DOGE) started as a meme cryptocurrency based on the popular 'Doge' internet meme featuring a Shiba Inu dog. Despite its origins, Dogecoin has gained popularity and is used for tipping and charitable donations. It features a fast block time and a large supply, making it accessible to a broad audience.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=029",
+      "alt": "Dogecoin Logo"
+    }
+  },
+  {
+    "name": "SOLANA",
+    "codeName": "SOL",
+    "price": "150",
+    "description": "Solana (SOL) is a high-performance blockchain platform known for its fast transaction speeds and low fees. It uses a unique consensus mechanism called Proof of History (PoH) combined with Proof of Stake (PoS). Solana aims to provide a scalable and efficient infrastructure for decentralized applications (DApps) and crypto projects.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/solana-sol-logo.png",
+      "alt": "Solana Logo"
+    }
+  },
+  {
+    "name": "TRON",
+    "codeName": "TRX",
+    "price": "0.1",
+    "description": "Tron (TRX) is a blockchain platform that aims to build a decentralized internet. It focuses on content sharing and entertainment applications, allowing content creators to bypass traditional intermediaries and connect directly with their audiences. TRX is the native cryptocurrency used within the Tron ecosystem.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/tron-trx-logo.png?v=029",
+      "alt": "Tron Logo"
+    }
+  },
+  {
+    "name": "VECHAIN",
+    "codeName": "VET",
+    "price": "0.15",
+    "description": "VeChain (VET) is a blockchain platform designed for supply chain management and business processes. It uses blockchain technology to enhance transparency and traceability in supply chains, allowing users to track the authenticity and origin of products. VET is the native cryptocurrency of the VeChainThor blockchain.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/vechain-vet-logo.png?v=029",
+      "alt": "VeChain Logo"
+    }
+  },
+
+  {
+    "name": "POLYGON",
+    "codeName": "MATIC",
+    "price": "1.50",
+    "description": "Polygon (MATIC) is a layer 2 scaling solution for Ethereum, offering faster and cheaper transactions. It aims to improve Ethereum's scalability and usability, providing a framework for building and connecting multiple chains. MATIC is the native cryptocurrency used on the Polygon network.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/polygon-matic-logo.png",
+      "alt": "Polygon Logo"
+    }
+  },
+  {
+    "name": "AVA Labs",
+    "codeName": "AVAX",
+    "price": "50",
+    "description": "Avalanche (AVAX) is a decentralized platform designed for launching custom blockchain networks and decentralized applications (DApps). It employs a unique consensus protocol to achieve high throughput and enables the creation of interoperable blockchain networks. AVAX is the native cryptocurrency of the Avalanche platform.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/avalanche-avax-logo.png?v=029",
+      "alt": "Avalanche Logo"
+    }
+  },
+  {
+    "name": "TEZOS",
+    "codeName": "XTZ",
+    "price": "5",
+    "description": "Tezos (XTZ) is a decentralized, self-amending blockchain platform that enables the creation of smart contracts and decentralized applications (DApps). It aims to provide a secure and upgradeable network through on-chain governance. XTZ is the native cryptocurrency used on the Tezos platform.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/tezos-xtz-logo.png?v=029",
+      "alt": "Tezos Logo"
     }
   }
 ]

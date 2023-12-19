@@ -1,0 +1,20 @@
+2023-12-13T16:07:53.371Z - GET /undefined - Status: 400
+Response: {"_original":"undefined","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"undefined","label":"value"}}]}
+2023-12-13T16:08:22.542Z - GET /undefined - Status: 400
+Response: {"details":[{"message":"\"value\" is required","path":[],"type":"any.required","context":{"label":"value"}}]}
+2023-12-13T16:12:08.848Z - GET /undefined - Status: 400
+Response: {"details":[{"message":"\"value\" is required","path":[],"type":"any.required","context":{"label":"value"}}]}
+2023-12-13T16:15:12.404Z - GET /65711c7702a13811b533cfd3 - Status: 400
+Response: {"details":[{"message":"\"value\" is required","path":[],"type":"any.required","context":{"label":"value"}}]}
+2023-12-13T16:15:14.954Z - GET /65711c7702a13811b533cfd3 - Status: 400
+Response: {"details":[{"message":"\"value\" is required","path":[],"type":"any.required","context":{"label":"value"}}]}
+2023-12-13T19:11:30.495Z - GET / - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-13T19:11:43.488Z - GET / - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-13T19:11:47.544Z - GET /get-my-fav-coins - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-13T19:12:42.788Z - GET /get-my-fav-coins - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-13T19:12:45.913Z - PATCH /coin-like/65711c7802a13811b533cfe5 - Status: 401
+Response: {"msg":"invalid token"}

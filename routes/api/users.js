@@ -47,6 +47,7 @@ router.post("/login", async (req, res) => {
     const token = await generateToken({
       _id: userData._id,
       isAdmin: userData.isAdmin,
+      firstName: userData.name.firstName,
     });
     res.json({ token });
   } catch (err) {
@@ -99,22 +100,6 @@ router.get("/user/info", authmw, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-/* router.get("/user/info", authmw, async (req, res) => {
-  console.log("🚀 ~ file: users.js:105 ~ router.get ~ req:", req);
-  try {
-    const userFromDB = await usersServiceModel.getUserById(req.params.id);
-    res.json(userFromDB);
-    console.log(
-      "🚀 ~ file: users.js:93 ~ router.get ~ userFromDB:",
-      userFromDB
-    );
-  } catch (err) {
-    console.log("🚀 ~ file: users.js:98 ~ router.get ~ err:", err);
-    res.status(400).json(err);
-  }
-});
- */
 
 router.put(
   "/:id",

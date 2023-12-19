@@ -1,0 +1,30 @@
+2023-12-17T19:03:40.090Z - GET /get-my-fav-coins - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-17T19:03:47.192Z - GET /user/info - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-17T19:03:53.842Z - GET /get-my-fav-coins - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-17T19:03:58.573Z - PATCH /coin-like/657f214c6473586dea618e8a - Status: 401
+Response: {"msg":"invalid token"}
+2023-12-17T22:52:07.164Z - GET /coins - Status: 404
+Response: {"err":"page not found"}
+2023-12-17T22:52:35.412Z - GET /coins - Status: 404
+Response: {"err":"page not found"}
+2023-12-17T22:52:38.228Z - GET /users - Status: 404
+Response: {"err":"page not found"}
+2023-12-18T13:51:52.629Z - POST /login - Status: 404
+Response: {"_original":{"email":"","password":"","":"Aa123456!"},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}]}
+2023-12-18T14:02:07.452Z - POST /login - Status: 404
+Response: {"_original":{"email":"","password":"","":"c"},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}]}
+2023-12-18T14:03:13.097Z - POST /login - Status: 404
+Response: {"_original":{"email":"ben@gmail.com","password":"Aa123456!","":"Aa123456!"},"details":[{"message":"\"value\" is not allowed","path":[""],"type":"object.unknown","context":{"child":"","label":"value","value":"Aa123456!","key":""}}]}
+2023-12-18T14:03:19.698Z - POST /login - Status: 404
+Response: {"_original":{"email":"ben@gmail.com","password":"Nahnah210!","":"Aa123456!"},"details":[{"message":"\"value\" is not allowed","path":[""],"type":"object.unknown","context":{"child":"","label":"value","value":"Aa123456!","key":""}}]}
+2023-12-18T14:03:25.757Z - POST /login - Status: 404
+Response: {"_original":{"email":"ben@gmail.com","password":"Aa123456!","":"Aa123456!"},"details":[{"message":"\"value\" is not allowed","path":[""],"type":"object.unknown","context":{"child":"","label":"value","value":"Aa123456!","key":""}}]}
+2023-12-18T14:03:35.828Z - POST /login - Status: 404
+Response: {"_original":{"email":"ben@gmail.com","password":"Nahnah210!","":"Aa123456!"},"details":[{"message":"\"value\" is not allowed","path":[""],"type":"object.unknown","context":{"child":"","label":"value","value":"Aa123456!","key":""}}]}
+2023-12-18T14:04:03.627Z - POST /login - Status: 404
+Response: {"_original":{"email":"ben@gmail.com","password":"Aa123456!","":"Aa123456!"},"details":[{"message":"\"value\" is not allowed","path":[""],"type":"object.unknown","context":{"child":"","label":"value","value":"Aa123456!","key":""}}]}
+2023-12-18T14:18:42.984Z - POST /login - Status: 404
+Response: {"_original":{"email":"<>","password":"Aa123456!"},"details":[{"message":"\"email\" with value \"<>\" fails to match the required pattern: /^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$/","path":["email"],"type":"string.pattern.base","context":{"regex":{},"value":"<>","label":"email","key":"email"}}]}
