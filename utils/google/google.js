@@ -46,6 +46,7 @@ router.get("/google-callback", async (req, res) => {
         isAdmin: userFromDB.isAdmin,
         isBiz: userFromDB.isBiz,
         _id: userFromDB._id,
+        firstName: userFromDB.name.firstName,
       });
       res.json({ msg: "done!", token });
     } else {

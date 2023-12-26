@@ -94,6 +94,24 @@ router.put(
   }
 );
 
+router.patch("/bulk-update", async (req, res) => {
+  try {
+    const { coins } = req.body;
+
+    // Iterate through coins and update in the database
+    for (const coin of coins) {
+      const { id, ...updatedFields } = coin;
+      await coinsServiceModel.updateCoin(id, updatedFields, { new: true });
+    }
+    console.log("Coins updated successfully");
+
+    res.status(200).json({ message: "Coins updated successfully" });
+  } catch (error) {
+    console.error("Error updating coins:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 router.patch("/coin-like/:id", authmw, async (req, res) => {
   try {
     const coinId = req.params.id;

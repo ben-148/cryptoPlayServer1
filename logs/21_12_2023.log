@@ -1,0 +1,16 @@
+2023-12-21T21:47:41.970Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-21T22:01:18.562Z - POST /login - Status: 404
+Response: {"msg":"invalid email and/or password"}
+2023-12-24T17:46:16.874Z - GET /public/emptyPortfolio.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-24T17:46:22.109Z - GET /public/emptyPortfolio.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-24T17:46:34.440Z - GET /public/emptyPortfolio.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-24T17:46:46.566Z - GET /public/emptyPortfolio.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-24T17:46:50.529Z - GET /public/emptyPortfolio.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-24T17:47:30.975Z - GET /public/emptyPortfolio.png - Status: 404
+Response: {"err":"page not found"}

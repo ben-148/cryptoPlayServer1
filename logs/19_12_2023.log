@@ -1,0 +1,8 @@
+2023-12-19T19:21:29.362Z - PATCH /api/coins/bulk-update - Status: 404
+Response: {"err":"page not found"}
+2023-12-19T19:21:29.465Z - PATCH /api/coins/bulk-update - Status: 404
+Response: {"err":"page not found"}
+2023-12-20T00:25:08.162Z - GET /[object%20Object] - Status: 404
+Response: {"err":"page not found"}
+2023-12-20T00:25:21.947Z - GET /[object%20Object] - Status: 404
+Response: {"err":"page not found"}

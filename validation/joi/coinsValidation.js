@@ -12,7 +12,9 @@ const createCoinSchema = Joi.object({
     ),
     alt: Joi.string().min(2).max(256).required(),
   }),
-  price: Joi.string().required(),
+  price: Joi.number().required(),
+  change24: Joi.number(),
+  market_cap: Joi.number(),
 });
 
 const validateCoinSchema = (userInput) => {

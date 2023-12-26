@@ -11,11 +11,17 @@ const coinSchema = new mongoose.Schema({
   codeName: DEFAULT_STRING_SCHEMA_REQUIRED,
   description: DEFAULT_STRING_SCHEMA_REQUIRED,
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   likes: [String],
   image: Image,
+  change24: {
+    type: Number,
+  },
+  market_cap: {
+    type: Number,
+  },
 });
 
 const Coin = mongoose.model("coins", coinSchema);
