@@ -58,7 +58,7 @@ router.post("/login", async (req, res) => {
 router.get(
   "/",
   authmw,
-  permissionsMiddleware(false, true, false),
+  permissionsMiddleware(true, false),
   async (req, res) => {
     try {
       const users = await usersServiceModel.getAllUsers();
@@ -74,7 +74,7 @@ router.get(
 router.get(
   "/:id",
   authmw,
-  permissionsMiddleware(false, true, false, true),
+  permissionsMiddleware(true, true),
   async (req, res) => {
     try {
       await userIdValidation(req.params.id);
@@ -104,7 +104,7 @@ router.get("/user/info", authmw, async (req, res) => {
 router.put(
   "/:id",
   authmw,
-  permissionsMiddleware(false, false, false, true),
+  permissionsMiddleware(false, true),
   async (req, res) => {
     try {
       await userIdValidation(req.params.id);
@@ -119,6 +119,7 @@ router.put(
       const token = await generateToken({
         _id: updatedUser._id,
         isAdmin: updatedUser.isAdmin,
+        firstName: updatedUser.name.firstName,
       });
 
       if (updatedUser) {
@@ -132,12 +133,13 @@ router.put(
         throw new CustomError("didnt find the user");
       }
     } catch (err) {
-      res.status(400).json(err);
+      res.status(400).json(err.message);
+      console.log("🚀 ~ file: users.js:137 ~ err.message:", err.message);
     }
   }
 );
 
-router.put("/trade/:id/", async (req, res) => {
+router.put("/trade/:id/", authmw, async (req, res) => {
   try {
     const { id } = req.params;
     const { coinId, tradeAmount, userId, coinAmount, action, coinPrice } =
@@ -220,13 +222,11 @@ router.put("/trade/:id/", async (req, res) => {
 router.patch(
   "/updateAmount/:id",
   authmw,
-  permissionsMiddleware(false, true, false, false),
+  permissionsMiddleware(true, false),
   async (req, res) => {
     try {
       const userId = req.params.id;
-      const amountToAdd = req.body.amountToAdd; // Assuming the amount to add is sent in the request body
-
-      // Update the user's amount
+      const amountToAdd = req.body.amountToAdd;
       const updatedUser = await usersServiceModel.updateUserAmount(
         userId,
         amountToAdd
@@ -241,29 +241,10 @@ router.patch(
   }
 );
 
-router.patch(
-  "/:id",
-  authmw,
-  permissionsMiddleware(false, false, false, true),
-  async (req, res) => {
-    try {
-      await userIdValidation(req.params.id);
-      await usersServiceModel.updateUserBizStatus(req.params.id);
-      let updatedUser = await usersServiceModel.getUserById(req.params.id);
-
-      res.status(200).json({ msg: "biz status is updated!", updatedUser });
-    } catch (err) {
-      console.log(chalk.red("User Patch Error:"));
-      console.error(err);
-      res.status(400).json(err);
-    }
-  }
-);
-
 router.delete(
   "/:id",
   authmw,
-  permissionsMiddleware(false, true, false, true),
+  permissionsMiddleware(true, true),
   async (req, res) => {
     try {
       const userId = req.params.id;

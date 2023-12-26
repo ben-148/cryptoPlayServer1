@@ -83,15 +83,6 @@ const sellCoin = async (userId, coinId, coinAmount, coinPrice) => {
   }
 };
 
-const updateUserBizStatus = (id) => {
-  return User.findByIdAndUpdate(
-    id,
-    [{ $set: { isBusiness: { $not: "$isBusiness" } } }],
-    {
-      new: true,
-    }
-  ).select(["-password"]);
-};
 const updateUserAmount = (id, amountToAdd) => {
   return User.findByIdAndUpdate(
     id,
@@ -112,7 +103,6 @@ module.exports = {
   getAllUsers,
   getUserById,
   updateUser,
-  updateUserBizStatus,
   deleteUser,
   buyCoin,
   sellCoin,

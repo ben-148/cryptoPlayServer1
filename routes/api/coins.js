@@ -61,7 +61,7 @@ router.get("/:id", async (req, res) => {
 router.post(
   "/",
   authmw,
-  permissionsMiddleware(false, true, false),
+  permissionsMiddleware(true, false),
   async (req, res) => {
     try {
       await coinsValidationService.createCoinValidation(req.body);
@@ -77,7 +77,7 @@ router.post(
 router.put(
   "/:id",
   authmw,
-  permissionsMiddleware(false, true, false),
+  permissionsMiddleware(true, false),
   async (req, res) => {
     try {
       await coinsValidationService.coinIdValidation(req.params.id);
@@ -93,6 +93,8 @@ router.put(
     }
   }
 );
+
+//updating dataBase with an API data
 
 router.patch("/bulk-update", async (req, res) => {
   try {
@@ -163,7 +165,7 @@ router.patch("/coin-like/:id", authmw, async (req, res) => {
 router.delete(
   "/:id",
   authmw,
-  permissionsMiddleware(false, true, true),
+  permissionsMiddleware(true, false),
   async (req, res) => {
     try {
       await coinsValidationService.coinIdValidation(req.params.id);

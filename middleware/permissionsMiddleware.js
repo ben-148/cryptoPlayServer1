@@ -19,20 +19,14 @@ const checkIfBizOwner = async (iduser, idcoin, res, next) => {
   }
 };
 
-const permissionsMiddleware = (isBiz, isAdmin, isBizOwner, isUser) => {
+const permissionsMiddleware = (isAdmin, isUser) => {
   return (req, res, next) => {
     if (!req.userData) {
       throw new CustomError("must provide userData");
     }
 
-    if (isBiz === req.userData.isBusiness && isBiz === true) {
-      return next();
-    }
     if (isAdmin === req.userData.isAdmin && isAdmin === true) {
       return next();
-    }
-    if (isBizOwner === req.userData.isBusiness && isBizOwner === true) {
-      return checkIfBizOwner(req.userData._id, req.params.id, res, next);
     }
     if (isUser && req.userData._id === req.params.id) {
       return next();

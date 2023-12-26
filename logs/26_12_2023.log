@@ -1,0 +1,22 @@
+2023-12-26T17:44:46.004Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: {}
+2023-12-26T17:44:53.869Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: {}
+2023-12-26T17:45:51.515Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: {}
+2023-12-26T17:50:26.559Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: "userData is not defined"
+2023-12-26T17:51:02.625Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: "userData is not defined"
+2023-12-26T17:51:27.065Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: "\"phone\" with value \"05111111\" fails to match the required pattern: /0[0-9]{1,2}\\-?\\s?[0-9]{3}\\s?[0-9]{4}/"
+2023-12-26T17:51:30.933Z - PUT /65847f9e4245a81703212afc - Status: 400
+Response: "userData is not defined"
+2023-12-26T18:45:45.929Z - GET /favicon3.ico - Status: 404
+Response: {"err":"page not found"}
+2023-12-26T18:45:45.993Z - GET /favicon3.ico - Status: 404
+Response: {"err":"page not found"}
+2023-12-26T19:32:08.207Z - GET /api/google/google-login - Status: 404
+Response: {"err":"page not found"}
+2023-12-26T19:32:28.486Z - GET /api/google/google-login - Status: 404
+Response: {"err":"page not found"}
