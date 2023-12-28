@@ -10,7 +10,6 @@ const coinsData = require("./coins.json");
 const initialData = async () => {
   try {
     let coins = await coinsService.getAllCoins();
-    // console.log("🚀 ~ file: initialData.js:13 ~ initialData ~ coins:", coins);
 
     if (coins.length) {
       return;

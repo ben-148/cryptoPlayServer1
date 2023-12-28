@@ -1,0 +1,6 @@
+2023-12-27T17:51:54.624Z - GET /api/google/google-login - Status: 404
+Response: {"err":"page not found"}
+2023-12-27T17:56:49.780Z - GET /api/google/google-login - Status: 404
+Response: {"err":"page not found"}
+2023-12-27T18:25:29.008Z - GET /api/google/google-login - Status: 404
+Response: {"err":"page not found"}

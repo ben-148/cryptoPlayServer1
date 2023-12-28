@@ -1,27 +1,19 @@
-# To Dear Tester,
-
-thank you for testing my project. I just want to notice that I answered 3 out of 4 bonus questions given to us in this project,
-1)logger file - Every bad request will be recorded in a file by update located at logs folder.
-2)Change Coin BizNumber Option - only for admin user 3) GOOGLE API to have an registered user and token, you will find the info about it at the buttom of this file.
-please give your attention to it :)
-thank you again!
-
 # Ben Oved Node.js Project
 
-A server-side project for web apllication with users and coins
+This server-side project is designed to support the CryptoPlay web application, providing essential functionalities for managing users and coins. Developed to seamlessly integrate with the corresponding React project, CryptoPlay, this Node.js server acts as the backbone for handling user-related operations, coin management, and interactions with external APIs like CoinGecko. The server is a crucial component that facilitates the dynamic and interactive features of the CryptoPlay web application.
 
 ## Installation
 
 1. Open vsCode and clone the repository from GitHub:
 
 ```bash
-  git clone https://github.com/ben-148/nodeProject
+  git clone https://github.com/ben-148
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-  cd nodeProject
+  cd cryptoPlayServer1
 ```
 
 3. Install the dependencies:
@@ -36,11 +28,11 @@ A server-side project for web apllication with users and coins
    npm run dev
 ```
 
-### my congratulations! Now you can start calling the server using its api.
+<!-- ### my congratulations! Now you can start calling the server using its api.
 
 In order to check it, you can use the postman program
 the passwords for all the inital users is "Aa123456!"
-and you will find the emails at ./initialData/useres
+and you will find the emails at ./initialData/useres -->
 
 ## API Documentation
 
@@ -72,44 +64,22 @@ Retrieves a specific user by their ID.
 - **URL Request:** /users
 - **Authentication:** No
 - **Request:**
-  - body:
-    - `name`: The name of the user. [object]
-      - `firstName`: The first name of the user. [string]
-        - Required.
-      - `middleName`: The middle name of the user. [string]
-      - `lastName`: The last name of the user. [string]
-        - Required.
-    - `phone`: The phone number of the user. [string]
-      - Required.
-      - Format: 0XX-XXXXXXX (e.g., 050-0000000)
-    - `email`: The email address of the user. [string]
-      - Required.
-      - Format: valid email address.
-      - Unique.
-    - `password`: The password for the user account. [string]
-      - Required.
-      - Format: At least 8 characters long with at least one uppercase letter, one lowercase letter, one digit, and one special character (#?!@$%^&\*-).
-    - `image`: The image of the user. [object]
-      - `url`: The URL of the image. [string]
-        - Format: valid URL.
-        - Required.
-      - `alt`: The alt text for the image. [string]
-        - Required.
-    - `address`: The address of the user. [object]
-      - `state`: The state of the user's address. [string]
-      - `country`: The country of the user's address. [string]
-        - Required.
-      - `city`: The city of the user's address. [string]
-        - Required.
-      - `street`: The street of the user's address. [string]
-        - Required.
-      - `houseNumber`: The house number of the user's address. [string]
-        - Required.
-        - Minimum length: 1.
-      - `zip`: The ZIP code of the user's address. [number]
-        - Minimum length: 4.
+- body:
+- `name`: The name of the user. [object]
+- `firstName`: The first name of the user. [string] - Required. Minimum length: 2. Maximum length: 256.
+- `middleName`: The middle name of the user. [string] - Minimum length: 2. Maximum length: 256. (Optional)
+- `lastName`: The last name of the user. [string] - Required. Minimum length: 2. Maximum length: 256.
+- `phone`: The phone number of the user. [string] - Required. - Format: 0XX-XXXXXXX (e.g., 050-0000000)
+- `email`: The email address of the user. [string] - Required. - Format: valid email address. - Unique.
 
-Registers a new user in the system.
+- `password`: The password for the user account. [string] - Required. - Format: At least 8 characters long with at least one uppercase letter, one lowercase letter, one digit, and one special character (#?!@$%^&\*-). - `image`: The image of the user. [object] - `url`: The URL of the image. [string] - Required. - Format: valid URL. - `alt`: The alt text for the image. [string] - Required.
+- `address`: The address of the user. [object]
+- `state`: The state of the user's address. [string] - Minimum length: 2. Maximum length: 256. (Optional)
+- `country`: The country of the user's address. [string] - Required. Minimum length: 2. Maximum length: 256.
+- `city`: The city of the user's address. [string] - Required. Minimum length: 2. Maximum length: 256.
+- `street`: The street of the user's address. [string] - Required. Minimum length: 2. Maximum length: 256.
+- `houseNumber`: The house number of the user's address. [string] - Required. Minimum length: 1. - `zip`: The ZIP code of the user's address. [number] - Minimum length: 4.
+  Registers a new user in the system.
 
 ### POST /users/login
 
@@ -126,16 +96,6 @@ Registers a new user in the system.
       - Format: At least 8 characters long with at least one uppercase letter, one lowercase letter, one digit, and one special character (#?!@$%^&\*-).
 
 Logs in a user with the provided email and password.
-
-### PATCH /users/:id
-
-- **REST Method:** PATCH
-- **URL Request:** /users/:id
-- **Authentication:** the registered user only
-- **Request:**
-  - must provide token
-
-Updates the user role to a business user
 
 ### PUT /users/:id
 
@@ -190,6 +150,41 @@ Updates a specific user by their ID.
 
 Deletes a specific user by their ID.
 
+### PUT /users/trade/:id/
+
+- **REST Method:** PUT
+- **URL Request:** /users/trade/:id/
+- **Authentication:** registered user
+- **Request:**
+  must provide token
+  body:
+  coinId: The ID of the coin. [string]
+  Required.
+  tradeAmount: The amount to trade. [number]
+  Required.
+  userId: The ID of the user. [string]
+  Required.
+  coinAmount: The amount of the coin to trade. [number]
+  Required.
+  action: The trade action. [string]
+  Required.
+  Options: "buy" or "sell".
+  coinPrice: The price of the coin. [number]
+  Required.
+  Performs a trade action (buy/sell) for a specific user and coin.
+
+### PATCH /users/updateAmount/:id
+
+- **REST Method:** PATCH
+- **URL Request:** /users/updateAmount/:id
+- **Authentication:** admin only
+- **Request:**
+  must provide token
+  body:
+  amountToAdd: The amount to add to the user's account. [number]
+  Required.
+  Updates the amount in a user's account.
+
 ### GET /coins
 
 - **REST Method:** GET
@@ -199,7 +194,7 @@ Deletes a specific user by their ID.
 
 Retrieves a list of all coins.
 
-### GET /coins/my-coin
+<!-- ### GET /coins/my-coin
 
 - **REST Method:** GET
 - **URL Request:** /coins/my-coin
@@ -208,48 +203,25 @@ Retrieves a list of all coins.
   - must provide token
 
 Retrieves the coin associated with the authenticated user.
+ -->
 
 ### POST /coins
 
 - **REST Method:** POST
 - **URL Request:** /coins
-- **Authentication:** business user
+- **Authentication:** Admin
 - **Request:**
   - must provide token
-  - body: -`title`: The title of the coin. [string]
-    - Required.
-    - `subTitle`: The subtitle of the coin. [string]
-      - Required.
-    - `description`: The description of the coin. [string]
-      - Required.
-      - Maximum length: 1024 characters.
-    - `phone`: The phone number associated with the coin. [string]
-      - Required.
-      - Format: 0XX-XXXXXXX (e.g., 0502-0000000).
-    - `email`: The email address associated with the coin. [string]
-      - Required.
-      - Format: valid email address.
-      - Unique.
-    - `web`: The website URL associated with the coin. [string]
-      - Format: valid URL.
-    - `image`: The image associated with the coin. [object]
-      - `url`: The URL of the image. [string]
-      - `alt`: The alt text for the image. [string]
-    - `address`: The address associated with the coin. [object]
-      - `state`: The state of the coin's address. [string]
-      - `country`: The country of the coin's address. [string]
-        - Required.
-      - `city`: The city of the coin's address. [string]
-        - Required.
-      - `street`: The street of the coin's address. [string]
-        - Required.
-      - `houseNumber`: The house number of the coin's address. [number]
-        - Required.
-        - Minimum length: 1.
-      - `zip`: The ZIP code of the coin's address. [number]
-        - Minimum length: 4.
-
-Creates a new coin.
+  - body: -`name: The name of the coin. [string]
+    Required.
+    codeName: The code name of the coin. [string]
+    Required.
+    description: The description of the coin. [string]
+    Required.
+    Maximum length: 1024 characters.
+    price: The price of the coin. [number] . if the coin is listed in the external API, the price will updated immediately according to the real live price
+    Required.
+    Add a new coin.
 
 ### PUT /coins/:id
 
@@ -258,40 +230,14 @@ Creates a new coin.
 - **Authentication:** owner user only
 - **Request:**
   - must provide token
-  - body: -`title`: The title of the coin. [string]
-    - Required.
-    - `subTitle`: The subtitle of the coin. [string]
-      - Required.
-    - `description`: The description of the coin. [string]
-      - Required.
-      - Maximum length: 1024 characters.
-    - `phone`: The phone number associated with the coin. [string]
-      - Required.
-      - Format: 0XX-XXXXXXX (e.g., 0502-0000000).
-    - `email`: The email address associated with the coin. [string]
-      - Required.
-      - Format: valid email address.
-      - Unique.
-    - `web`: The website URL associated with the coin. [string]
-      - Format: valid URL.
-    - `image`: The image associated with the coin. [object]
-      - `url`: The URL of the image. [string]
-      - `alt`: The alt text for the image. [string]
-    - `address`: The address associated with the coin. [object]
-      - `state`: The state of the coin's address. [string]
-      - `country`: The country of the coin's address. [string]
-        - Required.
-      - `city`: The city of the coin's address. [string]
-        - Required.
-      - `street`: The street of the coin's address. [string]
-        - Required.
-      - `houseNumber`: The house number of the coin's address. [number]
-        - Required.
-        - Minimum length: 1.
-      - `zip`: The ZIP code of the coin's address. [number]
-        - Minimum length: 4.
-
-Updates a specific coin by its ID.
+  - body: - body: -`name: The name of the coin. [string]
+    Required.
+    codeName: The code name of the coin. [string]
+    Required.
+    description: The description of the coin. [string]
+    Required.
+    Maximum length: 1024 characters.
+    price: The price of the coin is correlate with the external API and dont possible to edit
 
 ### PATCH /coins/:id
 
@@ -303,11 +249,44 @@ Updates a specific coin by its ID.
 
 Add or remove like from the coin's likes array
 
+### PATCH /coins/like/:id
+
+- **REST Method:** PATCH
+- **URL Request:** /coins/like/:id
+- **Authentication:** registered user
+- **Request:**
+  must provide token
+  Body:
+  None
+  Add or remove a like from the coin's likes array.
+
+This route allows a registered user to add or remove a like from the specified coin identified by :id. If the user has already liked the coin, it will be unliked, and vice versa.
+The response will include the updated like status of the coin.
+
+### PATCH /coins/bulk-update
+
+- **REST Method:** PATCH
+- **URL Request:** /coins/bulk-update
+- **Authentication:** None
+- **Request:**
+  Body:
+  coins: An array of objects representing coins to be updated.
+  Each object should contain:
+  id: The ID of the coin to be updated. [string] - Required.
+  Other fields representing the updated information for the coin.
+  Bulk update multiple coins in the database.
+
+This route allows for the bulk update of multiple coins in the database. The request body should contain an array of objects, each representing a coin to be updated. Each object should include the id field, identifying the coin to be updated, along with other fields representing the updated information for the coin.
+
+The update process involves connecting to the CoinGecko API to retrieve the latest information for each specified coin. The fields provided in the request body will be used to update the corresponding coins in the database with the latest information from CoinGecko.
+
+The response will confirm the successful update of the coins and provide a message indicating the success.
+
 ### DELETE /coins/:id
 
 - **REST Method:** DELETE
 - **URL Request:** /coins/:id
-- **Authentication:** admin or owner user
+- **Authentication:** admin
 - **Request:**
   - must provide token
 

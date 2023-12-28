@@ -139,29 +139,7 @@ router.patch("/coin-like/:id", authmw, async (req, res) => {
   }
 });
 
-//Bonus! :)
-
-/* router.patch(
-  "/bizNum/:id",
-  authmw,
-  permissionsMiddleware(false, true, false, false),
-  async (req, res) => {
-    try {
-      const coinId = req.params.id;
-      await coinsValidationService.coinIdValidation(coinId);
-      const coinFromDb = await coinsServiceModel.updateCoin(coinId, {
-        bizNumber: await generateBizNumber(),
-      });
-      res.json({ msg: `the new biz number is ${coinFromDb.bizNumber}` });
-    } catch (err) {
-      console.log(err);
-      res.status(400).json(err);
-    }
-  }
-);
- */
-
-// admin or biz owner
+// admin
 router.delete(
   "/:id",
   authmw,
