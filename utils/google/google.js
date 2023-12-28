@@ -44,7 +44,6 @@ router.get("/google-callback", async (req, res) => {
     if (userFromDB) {
       let token = await tokenService.generateToken({
         isAdmin: userFromDB.isAdmin,
-        // isBiz: userFromDB.isBiz,
         _id: userFromDB._id,
         firstName: userFromDB.name.firstName,
       });

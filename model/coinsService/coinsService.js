@@ -13,12 +13,6 @@ const getAllCoins = () => {
   }
 };
 
-const getUserCoins = (id) => {
-  if (dbOption === "mongo") {
-    return coinsServiceMongo.getUserCoins(id);
-  }
-};
-
 const getCoinById = (id) => {
   if (dbOption === "mongo") {
     return coinsServiceMongo.getCoinById(id);
@@ -66,7 +60,6 @@ module.exports = {
   getCoinByBizNumber,
   updateCoin,
   deleteCoin,
-  getUserCoins,
   likeCoin,
   unLikeCoin,
 };

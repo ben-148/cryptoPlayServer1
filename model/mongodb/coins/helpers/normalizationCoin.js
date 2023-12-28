@@ -15,13 +15,6 @@ const normalizeCoin = async (coin) => {
     likes: [],
     change24: 0,
     market_cap: 0,
-
-    // address: {
-    //   ...coin.address,
-    //   state: coin.address.state || "",
-    // }
-    // bizNumber: coin.bizNumber || (await generateBizNumber()),
-    // user_id: coin.user_id || userId,
   };
 };
 

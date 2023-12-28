@@ -9,16 +9,8 @@ const getAllCoins = () => {
   return Coin.find();
 };
 
-const getUserCoins = (id) => {
-  return Coin.find({ user_id: id });
-};
-
 const getCoinById = (id) => {
   return Coin.findById(id);
-};
-
-const getCoinByBizNumber = (bizNumber) => {
-  return Coin.findOne({ bizNumber }, { bizNumber: 1, _id: 0 });
 };
 
 const updateCoin = (id, coinToUpdate) => {
@@ -51,10 +43,8 @@ module.exports = {
   createCoin,
   getAllCoins,
   getCoinById,
-  getCoinByBizNumber,
   updateCoin,
   deleteCoin,
-  getUserCoins,
   likeCoin,
   unLikeCoin,
 };

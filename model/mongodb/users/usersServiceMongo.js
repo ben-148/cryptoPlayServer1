@@ -23,10 +23,6 @@ const updateUser = (id, userToUpdate) => {
   });
 };
 
-// const buyCoin = (coinId, amount) => {
-//   return User.findByIdAndUpdate;
-// };
-
 const buyCoin = (userId, coinId, amount) => {
   return User.findByIdAndUpdate(
     userId,
@@ -35,7 +31,6 @@ const buyCoin = (userId, coinId, amount) => {
   );
 };
 
-// usersServiceModel.js
 const sellCoin = async (userId, coinId, coinAmount, coinPrice) => {
   try {
     const user = await User.findById(userId);

@@ -1,0 +1,6 @@
+2023-12-28T14:24:39.794Z - GET /larger-favicon.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-28T14:24:39.869Z - GET /larger-favicon.png - Status: 404
+Response: {"err":"page not found"}
+2023-12-28T14:25:09.724Z - GET /larger-favicon.png - Status: 404
+Response: {"err":"page not found"}

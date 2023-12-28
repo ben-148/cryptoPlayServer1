@@ -89,10 +89,8 @@ router.get(
 // New route to get user information based on the token
 router.get("/user/info", authmw, async (req, res) => {
   try {
-    // Extract user ID from the token
     const userId = req.userData._id;
 
-    // Retrieve user information by ID
     const userFromDB = await usersServiceModel.getUserById(userId);
     res.json(userFromDB);
   } catch (err) {
@@ -128,7 +126,6 @@ router.put(
           updatedUser,
           token,
         });
-        // console.log("🚀 ~ file: users.js:134 ~ updatedUser:", updatedUser);
       } else {
         throw new CustomError("didnt find the user");
       }
@@ -150,8 +147,6 @@ router.put("/trade/:id/", authmw, async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
 
-    // user.amount -= tradeAmount;
-
     if (action === "buy") {
       const coinInPortfolio = user.portfolio.find((coin) => coin.coinId === id);
 
@@ -165,7 +160,7 @@ router.put("/trade/:id/", authmw, async (req, res) => {
 
         const updatedUser = await mUser.findById(userId);
         res.json({ updatedUser });
-        return; // Ensure to exit the function after sending the response
+        return;
       } else {
         user.amount -= tradeAmount;
 

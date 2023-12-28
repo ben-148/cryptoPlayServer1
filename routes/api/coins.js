@@ -20,32 +20,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/my-coins", authmw, async (req, res) => {
-  try {
-    const userCoins = await coinsServiceModel.getUserCoins(req.userData._id);
-    if (!userCoins.length) {
-      res.json({ msg: "No coins for this user" });
-    } else {
-      res.json(userCoins);
-    }
-  } catch (err) {
-    console.log(chalk.red("Failed to get user coins:"));
-    console.error(err);
-    res.status(400).json(err);
-  }
-});
-
-router.get("/get-my-fav-coins", authmw, async (req, res) => {
-  try {
-    let user = req.userData;
-    const coins = await Coin.find({ likes: user._id });
-    res.json(coins);
-  } catch (err) {
-    console.log(chalk.redBright(err));
-    return res.status(500).send(err);
-  }
-});
-
 // all
 router.get("/:id", async (req, res) => {
   try {
@@ -54,6 +28,18 @@ router.get("/:id", async (req, res) => {
     res.json(coinFromDB);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// connected user only
+router.get("/get-my-fav-coins", authmw, async (req, res) => {
+  try {
+    let user = req.userData;
+    const coins = await Coin.find({ likes: user._id });
+    res.json(coins);
+  } catch (err) {
+    console.log(chalk.redBright(err));
+    return res.status(500).send(err);
   }
 });
 
@@ -74,6 +60,7 @@ router.post(
   }
 );
 
+// connected user only
 router.put(
   "/:id",
   authmw,
@@ -113,6 +100,8 @@ router.patch("/bulk-update", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+// connected user only
 
 router.patch("/coin-like/:id", authmw, async (req, res) => {
   try {
