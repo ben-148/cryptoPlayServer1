@@ -20,6 +20,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/get-my-fav-coins", authmw, async (req, res) => {
+  try {
+    let user = req.userData;
+    const coins = await Coin.find({ likes: user._id });
+    res.json(coins);
+  } catch (err) {
+    console.log(chalk.redBright(err));
+    return res.status(500).send(err);
+  }
+});
+
 // all
 router.get("/:id", async (req, res) => {
   try {
@@ -32,16 +43,6 @@ router.get("/:id", async (req, res) => {
 });
 
 // connected user only
-router.get("/get-my-fav-coins", authmw, async (req, res) => {
-  try {
-    let user = req.userData;
-    const coins = await Coin.find({ likes: user._id });
-    res.json(coins);
-  } catch (err) {
-    console.log(chalk.redBright(err));
-    return res.status(500).send(err);
-  }
-});
 
 // admin only
 router.post(

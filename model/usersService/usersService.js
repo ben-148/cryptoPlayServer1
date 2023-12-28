@@ -34,13 +34,6 @@ const updateUser = (id, userToUpdate) => {
   }
 };
 
-const updateUserBizStatus = (id) => {
-  switch (dbOption) {
-    case "mongo":
-    default:
-      return usersServiceMongo.updateUserBizStatus(id);
-  }
-};
 const updateUserAmount = (id, amountToAdd) => {
   switch (dbOption) {
     case "mongo":
@@ -77,7 +70,6 @@ module.exports = {
   getAllUsers,
   getUserById,
   updateUser,
-  updateUserBizStatus,
   deleteUser,
   buyCoin,
   sellCoin,

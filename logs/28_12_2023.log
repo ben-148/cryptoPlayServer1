@@ -4,3 +4,45 @@ Response: {"err":"page not found"}
 Response: {"err":"page not found"}
 2023-12-28T14:25:09.724Z - GET /larger-favicon.png - Status: 404
 Response: {"err":"page not found"}
+2023-12-28T15:54:59.038Z - GET /google-callback - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T15:56:03.596Z - GET /google-callback - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T15:57:06.898Z - GET /google-callback - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:03:32.620Z - GET /google-callback - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:04:09.611Z - GET /google-callback - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:11:52.441Z - GET /google-callback - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:22:20.981Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:22:29.723Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:30:35.739Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:30:37.563Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:47:01.400Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T16:53:02.198Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T17:07:26.337Z - GET /google-login - Status: 401
+Response: {"msg":"please provide token"}
+2023-12-28T18:42:21.969Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:42:22.039Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:42:36.306Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:42:59.115Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:45:27.475Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:48:12.680Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:48:41.154Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T18:48:44.390Z - GET /get-my-fav-coins - Status: 400
+Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
