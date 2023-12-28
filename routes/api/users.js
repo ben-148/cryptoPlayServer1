@@ -112,7 +112,6 @@ router.put(
         req.params.id,
         normalUser
       );
-      console.log("🚀 ~ file: users.js:132 ~ updatedUser:", updatedUser);
 
       const token = await generateToken({
         _id: updatedUser._id,
@@ -205,7 +204,6 @@ router.put("/trade/:id/", authmw, async (req, res) => {
     }
 
     const updatedUser = await user.save();
-    console.log("Updated user after trade action:", updatedUser);
 
     res.json({ updatedUser });
   } catch (error) {

@@ -69,8 +69,6 @@ const sellCoin = async (userId, coinId, coinAmount, coinPrice) => {
     // Save the updated user
     const updatedUser = await user.save();
 
-    console.log("Updated user after sell action:", updatedUser);
-
     return updatedUser;
   } catch (error) {
     console.error("Error in sellCoin function:", error);
