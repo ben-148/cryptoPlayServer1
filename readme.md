@@ -1,5 +1,6 @@
 # Ben Oved Node.js Project
 
+Hi
 This server-side project is designed to support the CryptoPlay web application, providing essential functionalities for managing users and coins. Developed to seamlessly integrate with the corresponding React project, CryptoPlay, this Node.js server acts as the backbone for handling user-related operations, coin management, and interactions with external APIs like CoinGecko. The server is a crucial component that facilitates the dynamic and interactive features of the CryptoPlay web application.
 
 ## Installation
