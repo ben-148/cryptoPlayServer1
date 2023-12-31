@@ -7,6 +7,11 @@ const {
   userIdValidation,
   userUpdatedValidation,
 } = require("../../validation/authValidationService");
+const {
+  tradeValidation,
+  amountValidation,
+} = require("../../validation/tradeValidationService");
+
 const normalizeUser = require("../../model/usersService/helpers/normalizationUserService");
 const usersServiceModel = require("../../model/usersService/usersService");
 const { generateToken } = require("../../utils/token/tokenService");
@@ -148,7 +153,14 @@ router.put("/trade/:id/", authmw, async (req, res) => {
     const { id } = req.params;
     const { coinId, tradeAmount, userId, coinAmount, action, coinPrice } =
       req.body;
-
+    await userIdValidation(id);
+    await coinsValidationService.coinIdValidation(coinId);
+    await tradeValidation({
+      tradeAmount,
+      coinAmount,
+      action,
+      coinPrice,
+    });
     const user = await mUser.findById(userId);
     if (!user) {
       return res.status(404).json({ error: "User not found" });
@@ -228,6 +240,10 @@ router.patch(
     try {
       const userId = req.params.id;
       const amountToAdd = req.body.amountToAdd;
+
+      await userIdValidation(userId);
+      await amountValidation({ amountToAdd });
+
       const updatedUser = await usersServiceModel.updateUserAmount(
         userId,
         amountToAdd
@@ -249,6 +265,8 @@ router.delete(
   async (req, res) => {
     try {
       const userId = req.params.id;
+      await userIdValidation(userId);
+
       const user = await usersServiceModel.getUserById(userId);
       if (!user) {
         return res.status(404).json({ error: "User not found" });

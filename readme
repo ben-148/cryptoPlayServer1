@@ -4,39 +4,39 @@ This server-side project is designed to support the CryptoPlay web application, 
 
 ## Installation
 
-1. Open vsCode and clone the repository from GitHub:
+1. Open vsCode and clone the repository,
+   Navigate to the project directory:
 
-```bash
-  git clone https://github.com/ben-148
-```
-
-2. Navigate to the project directory:
-
-```bash
-  cd cryptoPlayServer1
-```
-
-3. Install the dependencies:
+2. Install the dependencies:
 
 ```bash
   npm i
 ```
 
-4. Run the server
+3. Run the server
+
+for development enviroment:
 
 ```bash
    npm run dev
 ```
 
+for production enviroment:
+
+```bash
+   npm start
+```
+
 <!-- ### my congratulations! Now you can start calling the server using its api.
 
-In order to check it, you can use the postman program
 the passwords for all the inital users is "Aa123456!"
 and you will find the emails at ./initialData/useres -->
 
 ## API Documentation
 
 The following API endpoints are available in this project:
+
+## USERS:
 
 ### GET /users
 
@@ -72,7 +72,8 @@ Retrieves a specific user by their ID.
 - `phone`: The phone number of the user. [string] - Required. - Format: 0XX-XXXXXXX (e.g., 050-0000000)
 - `email`: The email address of the user. [string] - Required. - Format: valid email address. - Unique.
 
-- `password`: The password for the user account. [string] - Required. - Format: At least 8 characters long with at least one uppercase letter, one lowercase letter, one digit, and one special character (#?!@$%^&\*-). - `image`: The image of the user. [object] - `url`: The URL of the image. [string] - Required. - Format: valid URL. - `alt`: The alt text for the image. [string] - Required.
+- `password`: The password for the user account. [string] - Required. - Format: At least 8 characters long with at least one uppercase letter, one lowercase letter, one digit, and one special character (#?!@$%^&\*-).
+- `image`: The image of the user. [object] - `url`: The URL of the image. [string] - Required. - Format: valid URL. - `alt`: The alt text for the image. [string] - Required.
 - `address`: The address of the user. [object]
 - `state`: The state of the user's address. [string] - Minimum length: 2. Maximum length: 256. (Optional)
 - `country`: The country of the user's address. [string] - Required. Minimum length: 2. Maximum length: 256.
@@ -185,6 +186,8 @@ Deletes a specific user by their ID.
   Required.
   Updates the amount in a user's account.
 
+  ## COINS:
+
 ### GET /coins
 
 - **REST Method:** GET
@@ -193,17 +196,6 @@ Deletes a specific user by their ID.
 - **Request:** None
 
 Retrieves a list of all coins.
-
-<!-- ### GET /coins/my-coin
-
-- **REST Method:** GET
-- **URL Request:** /coins/my-coin
-- **Authentication Needed:** specific business user
-- **Request:**
-  - must provide token
-
-Retrieves the coin associated with the authenticated user.
- -->
 
 ### POST /coins
 
@@ -219,7 +211,7 @@ Retrieves the coin associated with the authenticated user.
     description: The description of the coin. [string]
     Required.
     Maximum length: 1024 characters.
-    price: The price of the coin. [number] . if the coin is listed in the external API, the price will updated immediately according to the real live price
+    price: The price of the coin. [number] . if the coin is listed in the external API, the price will updated immediately according to the real live price.
     Required.
     Add a new coin.
 
@@ -238,16 +230,6 @@ Retrieves the coin associated with the authenticated user.
     Required.
     Maximum length: 1024 characters.
     price: The price of the coin is correlate with the external API and dont possible to edit
-
-### PATCH /coins/:id
-
-- **REST Method:** PATCH
-- **URL Request:** /coins/:id
-- **Authentication:** registered user
-- **Request:**
-  - must provide token
-
-Add or remove like from the coin's likes array
 
 ### PATCH /coins/like/:id
 
