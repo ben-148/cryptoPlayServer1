@@ -1,0 +1,58 @@
+2023-12-31T13:09:38.349Z - GET /undefined - Status: 400
+Response: {"_original":"undefined","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"undefined","label":"value"}}]}
+2023-12-31T13:17:57.683Z - POST / - Status: 404
+Response: "E11000 duplicate key error collection: cryptoPlay.users index: email_1 dup key: { email: \"ben@gmail.com\" }"
+2023-12-31T13:22:05.422Z - POST / - Status: 404
+Response: "E11000 duplicate key error collection: cryptoPlay.users index: email_1 dup key: { email: \"ben@gmail.com\" }"
+2023-12-31T13:22:54.702Z - POST / - Status: 404
+Response: "E11000 duplicate key error collection: cryptoPlay.users index: email_1 dup key: { email: \"ben@gmail.com\" }"
+2023-12-31T13:23:18.502Z - POST / - Status: 404
+Response: "E11000 duplicate key error collection: cryptoPlay.users index: email_1 dup key: { email: \"ben@gmail.com\" }"
+2023-12-31T13:27:23.313Z - POST / - Status: 404
+Response: "E11000 duplicate key error collection: cryptoPlay.users index: email_1 dup key: { email: \"ben@gmail.com\" }"
+2023-12-31T13:27:38.095Z - POST / - Status: 404
+Response: "E11000 duplicate key error collection: cryptoPlay.users index: email_1 dup key: { email: \"ben@gmail.com\" }"
+2023-12-31T13:36:13.842Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:36:20.569Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:36:57.816Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:36:59.455Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:37:25.173Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:37:57.460Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:37:59.231Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:38:02.549Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:38:10.580Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:40:13.381Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:41:41.403Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:42:40.790Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:42:41.983Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:43:22.051Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:50:11.057Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:50:15.286Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:50:28.618Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:51:50.166Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:53:16.294Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:55:29.944Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:55:48.191Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}
+2023-12-31T13:56:02.906Z - POST / - Status: 400
+Response: {"error":"Email address is already in use."}

@@ -159,5 +159,205 @@
       "url": "https://cryptologos.cc/logos/tezos-xtz-logo.png?v=029",
       "alt": "Tezos Logo"
     }
+  },
+  {
+    "name": "BITCOIN CASH",
+    "codeName": "BCH",
+    "price": 530.78,
+    "description": "Bitcoin Cash (BCH) is a peer-to-peer electronic cash system that emerged as a fork of Bitcoin (BTC). It aims to fulfill the vision of Bitcoin as a medium of exchange with lower transaction fees and faster confirmation times. Bitcoin Cash increases the block size limit, allowing for more transactions to be processed in each block.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/bitcoin-cash-bch-logo.png",
+      "alt": "Bitcoin Cash Logo"
+    }
+  },
+  {
+    "name": "ATOM",
+    "codeName": "ATOM",
+    "price": 26.92,
+    "description": "Cosmos (ATOM) is a decentralized network of independent, scalable, and interoperable blockchains. It aims to solve the challenges of blockchain scalability, usability, and interoperability. ATOM is the native cryptocurrency of the Cosmos Hub, facilitating staking and governance within the network.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/cosmos-atom-logo.png",
+      "alt": "Cosmos Logo"
+    }
+  },
+  {
+    "name": "EOS",
+    "codeName": "EOS",
+    "price": 5.12,
+    "description": "EOS.IO is a blockchain platform designed to support decentralized applications (DApps) at scale. It aims to provide a user-friendly experience for developers and end-users. EOS is the native cryptocurrency of the EOS.IO platform, used for transactions and network resource allocation.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/eos-eos-logo.png",
+      "alt": "EOS Logo"
+    }
+  },
+  {
+    "name": "Stellar",
+    "codeName": "XLM",
+    "price": 0.278356,
+    "description": "Stellar (XLM) is a blockchain-based platform designed to facilitate fast, low-cost cross-border payments and create and trade digital representations of all forms of money.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/stellar-xlm-logo.png?v=029",
+      "alt": "Stellar Logo"
+    }
+  },
+  {
+    "name": "Shiba Inu",
+    "codeName": "SHIB",
+    "price": 0.000008,
+    "description": "Shiba Inu (SHIB) is a meme cryptocurrency that gained popularity for its Shiba Inu dog logo. It operates as an experiment in decentralized community building and features an ecosystem with ShibaSwap and Bone tokens.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/shiba-inu-shib-logo.png",
+      "alt": "Shiba Inu Logo"
+    }
+  },
+  {
+    "name": "Filecoin",
+    "codeName": "FIL",
+    "price": 41.12,
+    "description": "Filecoin (FIL) is a decentralized storage network that enables users to rent out their unused storage space. It aims to create a more efficient and reliable storage infrastructure for the decentralized web.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/filecoin-fil-logo.png",
+      "alt": "Filecoin Logo"
+    }
+  },
+  {
+    "name": "Monero",
+    "codeName": "XMR",
+    "price": 202.84,
+    "description": "Monero (XMR) is a privacy-focused cryptocurrency that provides anonymous and untraceable transactions. It uses advanced cryptographic techniques to ensure the privacy and fungibility of coins.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/monero-xmr-logo.png",
+      "alt": "Monero Logo"
+    }
+  },
+  {
+    "name": "Kaspa",
+    "codeName": "KASP",
+    "price": 0.0501,
+    "description": "Kaspa (KASP) is a blockchain platform designed to address scalability issues. It aims to provide a more scalable and efficient infrastructure for decentralized applications and services.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/kaspa-kas-logo.png?v=029",
+      "alt": "Kaspa Logo"
+    }
+  },
+  {
+    "name": "Maker",
+    "codeName": "MKR",
+    "price": 2604.79,
+    "description": "Maker (MKR) is a governance token of the MakerDAO platform, which operates on the Ethereum blockchain. MakerDAO facilitates the creation of the stablecoin DAI and allows MKR holders to participate in the platform's governance.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/maker-mkr-logo.png",
+      "alt": "Maker Logo"
+    }
+  },
+  {
+    "name": "Fantom",
+    "codeName": "FTM",
+    "price": 1.35,
+    "description": "Fantom (FTM) is a high-performance blockchain platform that aims to provide fast and scalable decentralized applications. It focuses on solving scalability issues and supporting a wide range of industries.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/fantom-ftm-logo.png",
+      "alt": "Fantom Logo"
+    }
+  },
+  {
+    "name": "Flow",
+    "codeName": "FLOW",
+    "price": 13.45,
+    "description": "Flow (FLOW) is a blockchain platform designed for high-throughput and developer-friendly decentralized applications (DApps). It focuses on delivering a user-friendly experience for both developers and end-users.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/flow-flow-logo.png",
+      "alt": "Flow Logo"
+    }
+  },
+  {
+    "name": "The Sandbox",
+    "codeName": "SAND",
+    "price": 0.791,
+    "description": "The Sandbox (SAND) is a virtual world and gaming platform that allows users to create, own, and monetize their gaming experiences. It operates on blockchain technology, providing true ownership of in-game assets.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/the-sandbox-sand-logo.png",
+      "alt": "The Sandbox Logo"
+    }
+  },
+  {
+    "name": "Axie Infinity",
+    "codeName": "AXS",
+    "price": 82.16,
+    "description": "Axie Infinity (AXS) is a blockchain-based game where players collect, breed, and battle fantasy creatures called Axies. It features play-to-earn mechanics, allowing users to earn cryptocurrency by participating in the game.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/axie-infinity-axs-logo.png",
+      "alt": "Axie Infinity Logo"
+    }
+  },
+  {
+    "name": "BitTorrent",
+    "codeName": "BTT",
+    "price": 0.0025,
+    "description": "BitTorrent (BTT) is a decentralized file-sharing protocol that enables users to share and download files using peer-to-peer technology. The BTT token is used within the BitTorrent ecosystem for various purposes.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/bittorrent-btt-logo.png",
+      "alt": "BitTorrent Logo"
+    }
+  },
+  {
+    "name": "Helium",
+    "codeName": "HNT",
+    "price": 14.72,
+    "description": "Helium (HNT) is a blockchain network designed for the Internet of Things (IoT). It allows devices to connect and transfer data in a decentralized and secure manner. HNT is the native cryptocurrency of the Helium network.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/helium-hnt-logo.png",
+      "alt": "Helium Logo"
+    }
+  },
+  {
+    "name": "Binance USD",
+    "codeName": "BUSD",
+    "price": 1.0,
+    "description": "Binance USD (BUSD) is a stablecoin pegged to the value of the US Dollar. It is issued on the Binance Smart Chain (BSC) and provides a stable value for users within the Binance ecosystem.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/binance-usd-busd-logo.png",
+      "alt": "Binance USD Logo"
+    }
+  },
+  {
+    "name": "KuCoin Shares",
+    "codeName": "KCS",
+    "price": 8.27,
+    "description": "KuCoin Shares (KCS) is the native utility token of the KuCoin exchange. Holders of KCS receive various benefits, including trading fee discounts, token rewards, and participation in the KuCoin community.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/kucoin-shares-kcs-logo.png",
+      "alt": "KuCoin Shares Logo"
+    }
+  },
+  {
+    "name": "Neo",
+    "codeName": "NEO",
+    "price": 25.93,
+    "description": "Neo (NEO) is a blockchain platform that supports the development of digital assets and smart contracts. It aims to create a smart economy by providing a scalable and developer-friendly blockchain infrastructure.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/neo-neo-logo.png",
+      "alt": "Neo Logo"
+    }
+  },
+  {
+    "name": "Decentraland",
+    "codeName": "MANA",
+    "price": 0.855,
+    "description": "Decentraland (MANA) is a virtual reality platform built on the Ethereum blockchain. Users can buy, sell, and build on virtual land parcels, creating a decentralized and user-driven virtual world.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/decentraland-mana-logo.png",
+      "alt": "Decentraland Logo"
+    }
+  },
+  {
+    "name": "Gala",
+    "codeName": "GALA",
+    "price": 0.0857,
+    "description": "Gala (GALA) is the native cryptocurrency of the Gala Games ecosystem, a blockchain-based gaming platform. It enables users to participate in gaming and earn rewards through play-to-earn mechanics.",
+    "image": {
+      "url": "https://cryptologos.cc/logos/gala-gala-logo.png",
+      "alt": "Gala Logo"
+    }
   }
 ]

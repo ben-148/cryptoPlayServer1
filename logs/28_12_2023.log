@@ -46,3 +46,13 @@ Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" lengt
 Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
 2023-12-28T18:48:44.390Z - GET /get-my-fav-coins - Status: 400
 Response: {"_original":"get-my-fav-coins","details":[{"message":"\"value\" length must be 24 characters long","path":[],"type":"string.length","context":{"limit":24,"value":"get-my-fav-coins","label":"value"}}]}
+2023-12-28T21:48:11.642Z - POST / - Status: 404
+Response: "\"phone\" with value \"+972525772281\" fails to match the required pattern: /0[0-9]{1,2}\\-?\\s?[0-9]{3}\\s?[0-9]{4}/"
+2023-12-28T21:48:28.688Z - POST / - Status: 404
+Response: "\"phone\" with value \"972525772281\" fails to match the required pattern: /0[0-9]{1,2}\\-?\\s?[0-9]{3}\\s?[0-9]{4}/"
+2023-12-28T21:48:53.513Z - POST / - Status: 404
+Response: "\"password\" with value \"Shomske3001.\" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"
+2023-12-28T21:49:07.585Z - POST / - Status: 404
+Response: "\"password\" with value \"Shomske3001.\" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"
+2023-12-28T21:49:12.457Z - POST / - Status: 404
+Response: "\"password\" with value \"Shomske3001.\" fails to match the required pattern: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/"

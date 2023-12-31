@@ -26,7 +26,15 @@ router.post("/", async (req, res, next) => {
     await usersServiceModel.registerUser(user);
     res.json(user);
   } catch (err) {
-    res.status(404).json(err.message);
+    if (err.message.includes("duplicate key error")) {
+      // If it's a duplicate key error, send a custom message
+      return res
+        .status(400)
+        .json({ error: "Email address is already in use." });
+    }
+    // For other errors, send a generic error message
+    res.status(400).json({ error: "Registration failed. Please try again." });
+
     next(err);
   }
 });
